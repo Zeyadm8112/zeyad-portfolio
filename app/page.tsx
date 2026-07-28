@@ -20,54 +20,87 @@ const IMAGES: {
   molagloraApp: string | null;
   portrait: string | null;
 } = {
-  heroPhoto: null,
-  molagloraWeb: null,
-  molagloraApp: null,
-  portrait: null,
+  heroPhoto: "/me.jpg",
+  molagloraWeb: "/molaglora-lap.png",
+  molagloraApp: "/molaglora-mobile.png",
+  portrait: "/me2.jpg",
 };
 
 const LINKS = {
-  email: "hello@zeyad.dev",
-  appStore: "#",
-  googlePlay: "#",
-  web: "#",
-  github: "#",
-  linkedin: "#",
-  twitter: "#",
+  email: "zeyadm7811@outlook.com",
+  appStore: "https://apps.apple.com/app/molaglora/id6771689918",
+  googlePlay: "https://play.google.com/store/apps/details?id=com.icecodeco.molagloraios",
+  web: "https://molaglora-web.vercel.app/",
+  github: "https://github.com/Zeyadm8112",
+  linkedin: "https://www.linkedin.com/in/zeyad-mohamed-9b5a9a228/",
+  Upwork: "https://www.upwork.com/freelancers/~0112a079ef0c0af1aa",
 };
 
 const SKILLS = [
+  "PYTHON",
+  "DJANGO",
+  "DJANGO REST FRAMEWORK",
   "REACT",
-  "REACT NATIVE",
   "NEXT.JS",
+  "REACT NATIVE",
   "EXPO",
   "TYPESCRIPT",
-  "JAVASCRIPT (ES2024)",
-  "REDUX / ZUSTAND",
-  "REACT QUERY",
-  "TAILWIND",
-  "REANIMATED",
-  "REST / GRAPHQL",
-  "CI/CD · EAS",
+  "JAVASCRIPT",
+  "POSTGRESQL",
+  "SUPABASE",
+  "SQL",
+  "TAILWIND CSS",
+  "HTML5 / CSS3",
+  "REST APIs",
+  "DOCKER",
+  "GIT",
+  "LINUX",
 ];
-
 const BOOKS = [
-  { title: "REFACTORING UI", h: 220, bg: "#2f6fed", fg: "#f2efe9" },
-  { title: "CLEAN CODE", h: 260, bg: "#f2efe9", fg: "#0f0e0c" },
-  { title: "THE PRAGMATIC PROGRAMMER", h: 300, bg: "#161512", fg: "#f2efe9" },
-  { title: "EFFECTIVE TYPESCRIPT", h: 240, bg: "var(--accent)", fg: "#0f0e0c" },
-  { title: "ATOMIC HABITS", h: 210, bg: "#b4513e", fg: "#f2efe9" },
-  { title: "DEEP WORK", h: 270, bg: "#3e3a33", fg: "#f2efe9" },
+  { title: "TWO SCOOPS OF DJANGO", h: 260, bg: "#2f6fed", fg: "#f2efe9" },
+  { title: "DJANGO FOR PROFESSIONALS", h: 300, bg: "#f2efe9", fg: "#0f0e0c" },
+  { title: "FLUENT PYTHON", h: 280, bg: "#161512", fg: "#f2efe9" },
+  { title: "PYTHON COOKBOOK", h: 250, bg: "var(--accent)", fg: "#0f0e0c" },
+  { title: "LEARNING REACT", h: 230, bg: "#b4513e", fg: "#f2efe9" },
+  { title: "FRONT-END ARCHITECTURE\nFOR DESIGN SYSTEMS", h: 340, bg: "#3e3a33", fg: "#f2efe9" },
+  { title: "FULL STACK REACT NATIVE", h: 290, bg: "#5d6d7e", fg: "#f2efe9" },
+  { title: "REACT NATIVE IN ACTION", h: 270, bg: "#4a90e2", fg: "#f2efe9" },
+  { title: "REACT NATIVE COOKBOOK", h: 250, bg: "#2d3748", fg: "#f2efe9" },
 ];
-
 const CURRENT_BOOK = "DESIGNING INTERFACES";
 
-const POSTS = [
-  { date: "2026 · DRAFT", title: "One design language, two app stores", href: "#" },
-  { date: "2026 · DRAFT", title: "Why Expo finally won me over", href: "#" },
-  { date: "2026 · DRAFT", title: "Scroll-driven animations without a library", href: "#" },
+const PROJECTS = [
+  { title: "Aloy Document Analysis System", stack: "Django  |  Next.js" },
+  { title: "Football ETL Pipeline", stack: "Apache Airflow  |  Python" },
+  {
+    title: "License Activation System",
+    stack: "Python  |  PowerShell  |  Linux  |  Alibaba Cloud VPS",
+  },
+  { title: "COVID-19 Data Exploration", stack: "SQL  |  Data Analysis" },
 ];
 
+const POSTS = [
+  {
+    date: "Dec 1, 2025 · MEDIUM",
+    title: "Stop Confusing Your Developers: Document Your Django API Today!",
+    href: "https://medium.com/@zeyadm7811/stop-confusing-your-developers-document-your-django-api-today-508a1eea6351",
+  },
+  {
+    date: "Aug 27, 2025 · MEDIUM",
+    title: "Testing Django Like a Pro: Achieving Complete Coverage",
+    href: "https://medium.com/@zeyadm7811/testing-django-like-a-pro-achieving-complete-coverage-3a8fa40ff768",
+  },
+  {
+    date: "Aug 31, 2025 · MEDIUM",
+    title: "Defend Against OWASP Top 10 in Django",
+    href: "https://medium.com/@zeyadm7811/defend-against-owasp-top-10-in-django-31b275da10b8",
+  },
+  {
+    date: "Sep 2, 2025 · MEDIUM",
+    title: "A01:2021 – Broken Access Control",
+    href: "https://medium.com/@zeyadm7811/a01-2021-broken-access-control-1c1c855ad365",
+  },
+];
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
@@ -190,7 +223,7 @@ function Hero() {
                 }}
               >
                 <textPath href="#circ">
-                  {"OPEN TO WORK • REACT NATIVE • "}
+                  {"OPEN TO WORK • FULL-STACK • "}
                 </textPath>
               </text>
               <circle cx="75" cy="75" r="5" style={{ fill: "var(--accent)" }} />
@@ -201,7 +234,7 @@ function Hero() {
 
       <div className="mb-3.5 flex items-center gap-2.5 font-mono text-[13px] tracking-[.1em] text-fg/60">
         <span className="inline-block h-2 w-2 animate-[blink_1.6s_infinite] rounded-full bg-accent" />
-        FRONT-END ENGINEER — CAIRO → EVERYWHERE
+        Full-Stack ENGINEER — Suez → EVERYWHERE
       </div>
       <h1 className="m-0 text-[clamp(72px,13.5vw,220px)] leading-[.88] font-bold tracking-[-.03em] uppercase">
         <span data-reveal className="block">
@@ -216,10 +249,7 @@ function Hero() {
       </h1>
       <div className="mt-9 flex flex-wrap items-end justify-between gap-6 border-t border-fg/[.18] pt-[18px] pb-[26px]">
         <p className="m-0 max-w-[460px] text-[17px] leading-[1.55] text-fg/75">
-          I build fast, playful interfaces for the web and both app stores —
-          React on the front, React Native everywhere else.
-        </p>
-        <div className="font-mono text-xs text-fg/50">SCROLL ↓</div>
+I enjoy taking ideas from paper to production, building every layer of the stack.   </p>
       </div>
     </section>
   );
@@ -227,8 +257,7 @@ function Hero() {
 
 function Marquee() {
   const line =
-    "REACT ✦ REACT NATIVE ✦ NEXT.JS ✦ EXPO ✦ TYPESCRIPT ✦ SHIPPED TO BOTH STORES ✦";
-  return (
+"DJANGO ✦ REACT ✦ NEXT.JS ✦ REACT NATIVE ✦ EXPO ✦ TYPESCRIPT ✦ PYTHON ✦ FULL STACK";  return (
     <div className="overflow-hidden border-y border-fg/[.18] bg-accent text-[#0f0e0c]">
       <div className="flex w-max animate-[marquee_18s_linear_infinite] py-3.5 text-[22px] font-semibold tracking-[.02em] whitespace-nowrap">
         <span className="px-[18px]">{line}</span>
@@ -249,7 +278,7 @@ function Work() {
       <div
         ref={tiltRef}
         data-reveal
-        className="grid grid-cols-1 gap-11 rounded-[20px] border border-fg/20 bg-panel p-6 will-change-transform [transform-style:preserve-3d] md:p-11 lg:grid-cols-[1.1fr_.9fr]"
+        className="grid grid-cols-1 gap-11 rounded-[20px] border border-fg/20 bg-panel p-6 will-change-transform [transform-style:preserve-3d] md:p-11 lg:grid-cols-[1fr_1fr]"
       >
         <div className="flex flex-col justify-between gap-7">
           <div>
@@ -279,16 +308,17 @@ function Work() {
             <StoreLink href={LINKS.web}>WEB ↗</StoreLink>
           </div>
         </div>
-        <div className="grid grid-cols-[1fr_120px] items-end gap-4">
-          <div className="h-[360px]">
+        <div className="grid grid-cols-[1fr_150px] items-end gap-5">
+          <div className="h-[460px]">
             <ImageSlot
               src={IMAGES.molagloraWeb}
               alt="Molaglora web app"
               label="Molaglora web screenshot"
               className="rounded-[14px]"
+              fit="contain"
             />
           </div>
-          <div className="h-[240px]">
+          <div className="h-[320px]">
             <ImageSlot
               src={IMAGES.molagloraApp}
               alt="Molaglora mobile app"
@@ -300,29 +330,25 @@ function Work() {
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div
-          data-reveal
-          className="flex min-h-[180px] flex-col justify-between gap-4 rounded-[20px] border border-dashed border-fg/25 p-9"
-        >
-          <span className="font-mono text-[11px] text-fg/45">
-            PROJECT SLOT — 02
-          </span>
-          <p className="m-0 text-[15px] text-fg/50">
-            Your next case study goes here. Send me the details and I&apos;ll
-            lay it out.
-          </p>
-        </div>
-        <div
-          data-reveal
-          className="flex min-h-[180px] flex-col justify-between gap-4 rounded-[20px] border border-dashed border-fg/25 p-9"
-        >
-          <span className="font-mono text-[11px] text-fg/45">
-            PROJECT SLOT — 03
-          </span>
-          <p className="m-0 text-[15px] text-fg/50">
-            Side project, client work, or an open-source tool.
-          </p>
-        </div>
+        {PROJECTS.map((project, index) => (
+          <div
+            key={project.title}
+            data-reveal
+            className="flex min-h-[180px] flex-col justify-between gap-4 rounded-[20px] border border-dashed border-fg/25 p-9"
+          >
+            <span className="font-mono text-[11px] text-fg/45">
+              PROJECT — {String(index + 2).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 className="m-0 text-[clamp(24px,2.5vw,34px)] leading-[1.1] font-bold tracking-[-.02em]">
+                {project.title}
+              </h3>
+              <p className="mt-4 mb-0 font-mono text-[11px] leading-[1.6] text-fg/50">
+                {project.stack}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -356,25 +382,41 @@ function Experience() {
         data-reveal
         className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
       >
-        <span className="font-mono text-xs text-fg/50">2024 — NOW</span>
+        <span className="font-mono text-xs text-fg/50">FREELANCE</span>
         <span className="text-[22px] font-semibold">
-          Molaglora — Founding Front-End Engineer
+          Front-End Engineer | IceCode
         </span>
         <span className="text-[15px] leading-normal text-fg/60">
-          Built and shipped the web (Next.js) and mobile (Expo) apps solo, from
-          first commit to both stores.
+          Developed responsive web applications using React.js and Next.js.
+          Built cross-platform mobile applications with React Native.
+          Collaborated on SaaS products and client projects.
+        </span>
+      </div>
+      <div
+        data-reveal
+        className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
+      >
+        <span className="font-mono text-xs text-fg/50">2024 - 2026</span>
+        <span className="text-[22px] font-semibold">
+          IT Technical Support | Industrial Company
+        </span>
+        <span className="text-[15px] leading-normal text-fg/60">
+          Maintained computer systems and networks. Diagnosed hardware and
+          software issues. Provided technical support for employees.
         </span>
       </div>
       <div
         data-reveal
         className="grid grid-cols-1 items-baseline gap-2 border-y border-fg/[.18] py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
       >
-        <span className="font-mono text-xs text-fg/50">YYYY — YYYY</span>
-        <span className="text-[22px] font-semibold text-fg/40">
-          Previous role — add yours
+        <span className="font-mono text-xs text-fg/50">FREELANCE</span>
+        <span className="text-[22px] font-semibold">
+          Python Automation Developer | Upwork
         </span>
-        <span className="text-[15px] leading-normal text-fg/35">
-          Company, what you built, and the impact.
+        <span className="text-[15px] leading-normal text-fg/60">
+          Developed automation tools and scripts using Python. Built web
+          scraping and data processing solutions. Delivered automation projects
+          for international clients.
         </span>
       </div>
     </section>
@@ -398,11 +440,7 @@ function About() {
       <div data-reveal>
         <span className="font-mono text-xs text-accent-ink">04 — ABOUT</span>
         <p className="mt-4 mb-0 max-w-[820px] text-[clamp(24px,2.8vw,38px)] leading-[1.35] font-medium">
-          I&apos;m Zeyad — a front-end engineer who treats the browser like a
-          playground and the app stores like a shipping dock. One codebase
-          mindset, obsessive about feel: every tap, scroll, and transition
-          should earn its place.
-        </p>
+I'm Zeyad — a Full Stack Developer passionate about bringing ideas to life. I enjoy taking projects from a sketch on paper to a complete system, designing the database, building the backend, and crafting polished web and mobile experiences.        </p>
       </div>
     </section>
   );
@@ -414,9 +452,6 @@ function Books() {
       <SectionHeading num="05" className="mb-2.5">
         Bookshelf
       </SectionHeading>
-      <p className="mt-0 mb-9 font-mono text-xs text-fg/50">
-        HOVER A SPINE — SWAP IN YOUR OWN TITLES
-      </p>
       <div
         data-reveal
         className="flex flex-wrap items-end gap-2.5 border-b-[6px] border-fg/[.18] px-2"
@@ -435,7 +470,7 @@ function Books() {
         ))}
         <div className="ml-6 pb-3.5 font-mono text-xs text-accent-ink">
           <span className="inline-block animate-[blink_1.6s_infinite]">▮</span>{" "}
-          CURRENTLY READING: {CURRENT_BOOK}
+          CURRENTLY READING ....
         </div>
       </div>
     </section>
@@ -496,10 +531,10 @@ function Contact() {
           LINKEDIN
         </a>
         <a
-          href={LINKS.twitter}
+          href={LINKS.Upwork}
           className="underline underline-offset-4 hover:text-accent-ink"
         >
-          X / TWITTER
+         Upwork
         </a>
       </div>
       <div className="mt-20 flex flex-wrap justify-between gap-2 border-t border-fg/[.18] py-5 font-mono text-[11px] text-fg/40">
@@ -549,11 +584,13 @@ function ImageSlot({
   alt,
   label,
   className = "",
+  fit = "cover",
 }: {
   src: string | null;
   alt: string;
   label: string;
   className?: string;
+  fit?: "cover" | "contain";
 }) {
   return (
     <div className={`relative h-full w-full overflow-hidden ${className}`}>
@@ -563,7 +600,9 @@ function ImageSlot({
           alt={alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
+          className={
+            fit === "contain" ? "object-contain object-bottom" : "object-cover"
+          }
         />
       ) : (
         <div
