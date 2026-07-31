@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zeyad Mohamed — Front-End Engineer",
+  title: "Zeyad Mohamed — Full-Stack Engineer",
   description:
     "I build fast, playful interfaces for the web and both app stores — React on the front, React Native everywhere else.",
 };
