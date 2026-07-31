@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Download } from "lucide-react";
 import {
   useEffect,
   useRef,
@@ -19,11 +20,21 @@ const IMAGES: {
   molagloraWeb: string | null;
   molagloraApp: string | null;
   portrait: string | null;
+  aloyFront: string | null;
+  aloyBack: string | null;
+  aloyRag: string | null;
+  footballEtl: string | null;
+  activator: string | null;
 } = {
   heroPhoto: "/me.jpg",
   molagloraWeb: "/molaglora-lap.png",
   molagloraApp: "/molaglora-mobile.png",
   portrait: "/me2.jpg",
+  aloyFront: "/aloy-front.png",
+  aloyBack: "/aloy-back.png",
+  aloyRag: "/aloy-rag-.png",
+  footballEtl: "/etl.png",
+  activator: "/activator-client.png",
 };
 
 const LINKS = {
@@ -34,6 +45,11 @@ const LINKS = {
   github: "https://github.com/Zeyadm8112",
   linkedin: "https://www.linkedin.com/in/zeyad-mohamed-9b5a9a228/",
   Upwork: "https://www.upwork.com/freelancers/~0112a079ef0c0af1aa",
+  aloyFrontend: "https://github.com/Zeyadm8112/aloy-frontend",
+  aloyBackend: "https://github.com/Zeyadm8112/aloy-backend",
+  aloyRag: "https://github.com/Zeyadm8112/aloy_rag",
+  footballEtl: "https://github.com/Zeyadm8112/Football-stats-ETL",
+  activator: "https://github.com/Zeyadm8112/Activator",
 };
 
 const SKILLS = [
@@ -67,18 +83,54 @@ const BOOKS = [
   { title: "REACT NATIVE IN ACTION", h: 270, bg: "#4a90e2", fg: "#f2efe9" },
   { title: "REACT NATIVE COOKBOOK", h: 250, bg: "#2d3748", fg: "#f2efe9" },
 ];
-const CURRENT_BOOK = "DESIGNING INTERFACES";
 
-const PROJECTS = [
-  { title: "Aloy Document Analysis System", stack: "Django  |  Next.js" },
-  { title: "Football ETL Pipeline", stack: "Apache Airflow  |  Python" },
-  {
-    title: "License Activation System",
-    stack: "Python  |  PowerShell  |  Linux  |  Alibaba Cloud VPS",
-  },
-  { title: "COVID-19 Data Exploration", stack: "SQL  |  Data Analysis" },
+const CERTIFICATIONS = [
+    { title: "OWASP Mobile Top 10 2025: Android & iOS App Security", issuer: "Udemy", date: "ISSUED 2025" },
+  { title: "Python and Flask Demonstration Practice", issuer: "Udemy", date: "ISSUED 2024" },
+  { title: "Python OOP: A Complete Course in Object Oriented Programming", issuer: "Udemy", date: "ISSUED 2024" },
+  { title: "Python And Flask Framework Complete Course for beginners", issuer: "Udemy", date: "ISSUED 2024" },
+  { title: "Agile Crash Course for Beginners", issuer: "Udemy", date: "ISSUED 2024" },
+  { title: "OWASP Top 10 (Web)", issuer: "MaharaTech / ITIMooca", date: "ISSUED 2023" },
+  { title: "Android Development Google Africa Training Program", issuer: "Google Developers", date: "ISSUED 2023" },
+  { title: "UX Design Fundamentals", issuer: "MaharaTech / ITIMooca", date: "ISSUED 2022" },
+  { title: "UX Design Fundamentals", issuer: "MaharaTech / ITIMooca", date: "ISSUED 2022" },
+    { title: "ITI 101: Introduction to Computer Science", issuer: "Information Technology Institute", date: "ISSUED 2022" },
+
+  { title: "CS50", issuer: "Harvard UNiversity", date: "ISSUED 2022" },
 ];
 
+const CURRENT_COURSES = [
+  {
+    title: "SQL Masterclass: From Absolute Beginner to Developer",
+    provider: "Udemy",
+    focus: "Advanced SQL, Database Design & Query Optimization",
+  },
+  {
+    title: "API Testing with Python – Manual & Automation using Pytest",
+    provider: "Udemy",
+    focus: "API Testing, Pytest Automation & REST Validation",
+  },
+  {
+    title: "Microsoft 365 Productivity Mastery: Save 10+ Hours a Week",
+    provider: "Udemy",
+    focus: "Microsoft 365, Workflow Automation & Productivity",
+  },
+  {
+    title: "OWASP Security Testing of Web, API, Android & Source Code App",
+    provider: "Udemy",
+    focus: "Application Security, OWASP Testing & Vulnerability Assessment",
+  },
+  {
+    title: "Code Reviews for Secure, Clean, and Scalable Code",
+    provider: "Udemy",
+    focus: "Secure Code Reviews, Clean Architecture & Best Practices",
+  },
+  {
+    title: "Governance, Risk and Compliance (GRC) and Data Privacy",
+    provider: "Udemy",
+    focus: "Cybersecurity Governance, Risk Management & Data Privacy",
+  },
+];
 const POSTS = [
   {
     date: "Dec 1, 2025 · MEDIUM",
@@ -86,9 +138,9 @@ const POSTS = [
     href: "https://medium.com/@zeyadm7811/stop-confusing-your-developers-document-your-django-api-today-508a1eea6351",
   },
   {
-    date: "Aug 27, 2025 · MEDIUM",
-    title: "Testing Django Like a Pro: Achieving Complete Coverage",
-    href: "https://medium.com/@zeyadm7811/testing-django-like-a-pro-achieving-complete-coverage-3a8fa40ff768",
+    date: "Sep 2, 2025 · MEDIUM",
+    title: "A01:2021 – Broken Access Control",
+    href: "https://medium.com/@zeyadm7811/a01-2021-broken-access-control-1c1c855ad365",
   },
   {
     date: "Aug 31, 2025 · MEDIUM",
@@ -96,11 +148,95 @@ const POSTS = [
     href: "https://medium.com/@zeyadm7811/defend-against-owasp-top-10-in-django-31b275da10b8",
   },
   {
-    date: "Sep 2, 2025 · MEDIUM",
-    title: "A01:2021 – Broken Access Control",
-    href: "https://medium.com/@zeyadm7811/a01-2021-broken-access-control-1c1c855ad365",
+    date: "Aug 27, 2025 · MEDIUM",
+    title: "Testing Django Like a Pro: Achieving Complete Coverage",
+    href: "https://medium.com/@zeyadm7811/testing-django-like-a-pro-achieving-complete-coverage-3a8fa40ff768",
   },
 ];
+
+const PROJECTS = [
+  {
+    title: "Aloy AI Document Analysis - Backend",
+    description:
+      "Scalable Django backend powering AI document analysis with REST APIs, WebSockets, workspace management, role-based access control, and real-time collaborative chat.",
+    tags: ["DJANGO", "DRF", "WEBSOCKETS", "POSTGRESQL"],
+    badge: "AI BACKEND",
+    images: {
+      primary: IMAGES.aloyBack,
+    },
+    links: [
+      { title: "GITHUB ↗", href: LINKS.aloyBackend },
+    ],
+  },
+  {
+    title: "Aloy AI Document Analysis - Frontend",
+    description:
+      "Enterprise document analysis frontend built with Next.js, featuring real-time AI chat, collaborative workspaces, role-based access control, and WebSocket-powered live updates.",
+    tags: ["NEXT.JS", "TYPESCRIPT", "TAILWIND", "WEBSOCKETS"],
+    badge: "ENTERPRISE FRONTEND",
+    images: {
+      primary: IMAGES.aloyFront,
+    },
+    links: [
+      { title: "GITHUB ↗", href: LINKS.aloyFrontend },
+    ],
+  },
+  {
+    title: "Aloy AI Document Analysis - RAG Engine",
+    description:
+      "Production-ready Retrieval-Augmented Generation (RAG) pipeline for document ingestion, semantic search, vector embeddings, and LLM-powered question answering.",
+    tags: ["PYTHON", "RAG", "LLM", "VECTOR SEARCH"],
+    badge: "AI ENGINE",
+    images: {
+      primary: IMAGES.aloyRag,
+    },
+    links: [
+      { title: "GITHUB ↗", href: LINKS.aloyRag },
+    ],
+  },
+  {
+    title: "Football ETL Pipeline",
+    description:
+      "Automated data engineering pipeline using Apache Airflow to extract football statistics, transform datasets with pandas, and load them into PostgreSQL on a cloud Linux server.",
+    tags: ["PYTHON", "AIRFLOW", "POSTGRESQL", "PANDAS"],
+    badge: "DATA ENGINEERING",
+    images: {
+      primary: IMAGES.footballEtl,
+    },
+    links: [
+      { title: "GITHUB ↗", href: LINKS.footballEtl },
+    ],
+  },
+  {
+    title: "IceCode License Activator",
+    description:
+      "Hardware-bound Windows application licensing system with a Python backend, secure activation workflow, and centralized license management for desktop software.",
+    tags: ["PYTHON", "POWERSHELL", "WSGI", "DEBIAN"],
+    badge: "LICENSING SYSTEM",
+    images: {
+      primary: IMAGES.activator,
+    },
+    links: [
+      { title: "GITHUB ↗", href: LINKS.activator },
+    ],
+  },
+];
+
+type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  badge?: string;
+  images: {
+    primary: string | null;
+    secondary?: string | null;
+  };
+  links: {
+    title: string;
+    href: string;
+  }[];
+};
+
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
@@ -116,10 +252,13 @@ export default function Home() {
       <Work />
       <Skills />
       <Experience />
+      <Certifications />
+      <Courses />
       <About />
       <Books />
       <Blog />
       <Contact />
+      <FloatingCVButton />
     </div>
   );
 }
@@ -128,8 +267,6 @@ export default function Home() {
 // Sections
 // ---------------------------------------------------------------------------
 
-// Theme lives on <html data-theme> (set before paint by the layout's inline
-// script), so React reads it as an external store instead of duplicating it.
 function subscribeTheme(cb: () => void) {
   window.addEventListener("zm-theme", cb);
   return () => window.removeEventListener("zm-theme", cb);
@@ -152,14 +289,13 @@ function Nav() {
     window.dispatchEvent(new Event("zm-theme"));
   };
 
-  // White + difference blend inverts to dark ink on the light theme.
   return (
     <nav className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-[18px] font-mono text-xs tracking-[.08em] text-white mix-blend-difference md:px-10">
       <a href="#top" className="text-sm font-bold">
         ZM©2026
       </a>
-      <div className="flex items-center gap-4 md:gap-[26px]">
-        <div className="hidden items-center gap-[26px] md:flex">
+      <div className="flex items-center gap-3 sm:gap-4">
+        <div className="hidden items-center gap-4 md:flex md:gap-[26px]">
           <a href="#work" className="hover:text-accent-ink">WORK</a>
           <a href="#about" className="hover:text-accent-ink">ABOUT</a>
           <a href="#books" className="hover:text-accent-ink">BOOKS</a>
@@ -173,7 +309,7 @@ function Nav() {
         </a>
         <button
           onClick={toggleTheme}
-          className="cursor-pointer rounded-full border border-current bg-transparent px-3.5 py-[5px] font-mono text-[11px] tracking-[.08em] text-inherit"
+          className="cursor-pointer rounded-full border border-current bg-transparent px-3 py-[5px] font-mono text-[10px] tracking-[.08em] text-inherit sm:px-3.5 sm:text-[11px]"
         >
           {theme === "light" ? "◐ DARK" : "◐ LIGHT"}
         </button>
@@ -186,26 +322,28 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col justify-end overflow-hidden px-5 pt-[120px] md:px-10"
+      className="relative flex min-h-screen flex-col justify-end overflow-hidden px-5 pt-24 pb-8 md:pt-[120px] md:px-10"
     >
-      {/* Floating polaroid + rotating badge */}
-      <div className="absolute top-[12%] right-[7%] z-[2] hidden animate-[floaty_7s_ease-in-out_infinite] md:block">
-        <div className="relative w-[250px] rotate-[4deg] transition-transform duration-[.4s] ease-[cubic-bezier(.2,.7,.2,1)] hover:rotate-0 hover:scale-[1.03]">
-          <div className="rounded-[18px] border border-fg/30 bg-panel px-2.5 pt-2.5 shadow-[10px_10px_0_var(--accent)]">
-            <div className="h-[290px] w-full">
+      {/* Floating polaroid + rotating badge - Now visible on all screens */}
+      <div className="absolute top-[8%] right-[5%] z-[2] animate-[floaty_7s_ease-in-out_infinite] sm:top-[10%] sm:right-[6%] md:top-[12%] md:right-[7%]">
+        <div className="relative w-[120px] rotate-[4deg] transition-transform duration-[.4s] ease-[cubic-bezier(.2,.7,.2,1)] hover:rotate-0 hover:scale-[1.03] sm:w-[180px] md:w-[250px]">
+          <div className="rounded-[14px] border border-fg/30 bg-panel px-1.5 pt-1.5 shadow-[8px_8px_0_var(--accent)] sm:rounded-[18px] sm:px-2.5 sm:pt-2.5 sm:shadow-[10px_10px_0_var(--accent)]">
+            <div className="h-[140px] w-full sm:h-[200px] md:h-[290px]">
               <ImageSlot
                 src={IMAGES.heroPhoto}
                 alt="Zeyad Mohamed"
                 label="Drop your photo"
-                className="rounded-[10px]"
+                className="rounded-[8px] sm:rounded-[10px]"
               />
             </div>
-            <div className="flex items-center justify-between px-1 py-2.5 font-mono text-[10.5px] tracking-[.08em] text-fg/55">
+            <div className="flex items-center justify-between px-1 py-1.5 font-mono text-[8px] tracking-[.08em] text-fg/55 sm:py-2.5 sm:text-[10.5px]">
               <span>ZEYAD.JPG</span>
               <span className="text-accent-ink">● REC</span>
             </div>
           </div>
-          <div className="pointer-events-none absolute -top-[42px] -left-[50px] h-[118px] w-[118px] animate-[spin_14s_linear_infinite]">
+          
+          {/* Rotating badge - scaled down on mobile */}
+          <div className="pointer-events-none absolute -top-[20px] -left-[20px] h-[60px] w-[60px] animate-[spin_14s_linear_infinite] sm:-top-[30px] sm:-left-[30px] sm:h-[80px] sm:w-[80px] md:-top-[42px] md:-left-[50px] md:h-[118px] md:w-[118px]">
             <svg viewBox="0 0 150 150" className="h-full w-full overflow-visible">
               <defs>
                 <path
@@ -223,7 +361,7 @@ function Hero() {
                 }}
               >
                 <textPath href="#circ">
-                  {"OPEN TO WORK • FULL-STACK • "}
+                  {"OPEN TO WORK • FULL-STACK • "}
                 </textPath>
               </text>
               <circle cx="75" cy="75" r="5" style={{ fill: "var(--accent)" }} />
@@ -232,11 +370,11 @@ function Hero() {
         </div>
       </div>
 
-      <div className="mb-3.5 flex items-center gap-2.5 font-mono text-[13px] tracking-[.1em] text-fg/60">
+      <div className="mb-3.5 flex items-center gap-2.5 font-mono text-[11px] tracking-[.1em] text-fg/60 sm:text-[13px]">
         <span className="inline-block h-2 w-2 animate-[blink_1.6s_infinite] rounded-full bg-accent" />
         Full-Stack ENGINEER — Suez → EVERYWHERE
       </div>
-      <h1 className="m-0 text-[clamp(72px,13.5vw,220px)] leading-[.88] font-bold tracking-[-.03em] uppercase">
+      <h1 className="m-0 text-[clamp(42px,15vw,220px)] leading-[.9] font-bold tracking-[-.03em] uppercase">
         <span data-reveal className="block">
           Zeyad
         </span>
@@ -247,21 +385,21 @@ function Hero() {
           Mohamed
         </span>
       </h1>
-      <div className="mt-9 flex flex-wrap items-end justify-between gap-6 border-t border-fg/[.18] pt-[18px] pb-[26px]">
-        <p className="m-0 max-w-[460px] text-[17px] leading-[1.55] text-fg/75">
-I enjoy taking ideas from paper to production, building every layer of the stack.   </p>
+      <div className="mt-6 flex flex-wrap items-end justify-between gap-4 border-t border-fg/[.18] pt-[18px] pb-[26px] sm:mt-9 sm:gap-6">
+        <p className="m-0 max-w-[460px] text-[15px] leading-[1.55] text-fg/75 sm:text-[17px]">
+          I enjoy taking ideas from paper to production, building every layer of the stack.
+        </p>
       </div>
     </section>
   );
 }
-
 function Marquee() {
-  const line =
-"DJANGO ✦ REACT ✦ NEXT.JS ✦ REACT NATIVE ✦ EXPO ✦ TYPESCRIPT ✦ PYTHON ✦ FULL STACK";  return (
+  const line = "DJANGO ✦ REACT ✦ NEXT.JS ✦ REACT NATIVE ✦ EXPO ✦ TYPESCRIPT ✦ PYTHON ✦ FULL STACK";
+  return (
     <div className="overflow-hidden border-y border-fg/[.18] bg-accent text-[#0f0e0c]">
-      <div className="flex w-max animate-[marquee_18s_linear_infinite] py-3.5 text-[22px] font-semibold tracking-[.02em] whitespace-nowrap">
-        <span className="px-[18px]">{line}</span>
-        <span className="px-[18px]" aria-hidden>
+      <div className="flex w-max animate-[marquee_18s_linear_infinite] py-3 text-[16px] font-semibold tracking-[.02em] whitespace-nowrap sm:py-3.5 sm:text-[22px]">
+        <span className="px-3 sm:px-[18px]">{line}</span>
+        <span className="px-3 sm:px-[18px]" aria-hidden>
           {line}
         </span>
       </div>
@@ -272,44 +410,44 @@ function Marquee() {
 function Work() {
   const tiltRef = useTilt<HTMLDivElement>();
   return (
-    <section id="work" className="px-5 pt-[110px] pb-[60px] md:px-10">
+    <section id="work" className="px-4 pt-[70px] pb-[40px] sm:px-5 sm:pt-[110px] sm:pb-[60px] md:px-10">
       <SectionHeading num="01">Selected Work</SectionHeading>
 
       <div
         ref={tiltRef}
         data-reveal
-        className="grid grid-cols-1 gap-11 rounded-[20px] border border-fg/20 bg-panel p-6 will-change-transform [transform-style:preserve-3d] md:p-11 lg:grid-cols-[1fr_1fr]"
+        className="grid grid-cols-1 gap-8 rounded-[20px] border border-fg/20 bg-panel p-4 will-change-transform [transform-style:preserve-3d] sm:p-6 sm:gap-11 md:p-11 lg:grid-cols-[1fr_1fr]"
       >
-        <div className="flex flex-col justify-between gap-7">
+        <div className="flex flex-col justify-between gap-5 sm:gap-7">
           <div>
-            <div className="mb-5 flex flex-wrap gap-2 font-mono text-[11px]">
-              <span className="rounded-full border border-fg/30 px-3 py-[5px]">
+            <div className="mb-4 flex flex-wrap gap-2 font-mono text-[10px] sm:text-[11px]">
+              <span className="rounded-full border border-fg/30 px-2 py-[4px] sm:px-3 sm:py-[5px]">
                 NEXT.JS
               </span>
-              <span className="rounded-full border border-fg/30 px-3 py-[5px]">
+              <span className="rounded-full border border-fg/30 px-2 py-[4px] sm:px-3 sm:py-[5px]">
                 REACT NATIVE · EXPO
               </span>
-              <span className="rounded-full border border-accent px-3 py-[5px] text-accent-ink">
+              <span className="rounded-full border border-accent px-2 py-[4px] text-accent-ink sm:px-3 sm:py-[5px]">
                 LIVE ON BOTH STORES
               </span>
             </div>
-            <h3 className="mt-0 mb-3.5 text-[clamp(36px,4.5vw,64px)] font-bold tracking-[-.02em]">
+            <h3 className="mt-0 mb-3 text-[clamp(28px,6vw,64px)] font-bold tracking-[-.02em]">
               Molaglora
             </h3>
-            <p className="m-0 max-w-[420px] text-base leading-[1.6] text-fg/70">
+            <p className="m-0 max-w-[420px] text-[14px] leading-[1.6] text-fg/70 sm:text-base">
               A cross-platform product built end-to-end: Next.js web app plus a
               React Native (Expo) app shipped to the App Store and Google Play
               from a single design language.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3.5 font-mono text-xs">
+          <div className="flex flex-wrap gap-2 font-mono text-[10px] sm:gap-3.5 sm:text-xs">
             <StoreLink href={LINKS.appStore}>APP STORE ↗</StoreLink>
             <StoreLink href={LINKS.googlePlay}>GOOGLE PLAY ↗</StoreLink>
             <StoreLink href={LINKS.web}>WEB ↗</StoreLink>
           </div>
         </div>
-        <div className="grid grid-cols-[1fr_150px] items-end gap-5">
-          <div className="h-[460px]">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_120px] lg:grid-cols-[1fr_150px]">
+          <div className="h-[300px] sm:h-[400px] md:h-[460px]">
             <ImageSlot
               src={IMAGES.molagloraWeb}
               alt="Molaglora web app"
@@ -318,36 +456,25 @@ function Work() {
               fit="contain"
             />
           </div>
-          <div className="h-[320px]">
-            <ImageSlot
-              src={IMAGES.molagloraApp}
-              alt="Molaglora mobile app"
-              label="App screen"
-              className="rounded-[14px]"
-            />
-          </div>
+<div className="h-[250px] sm:h-[350px] md:h-[400px]"> 
+  <ImageSlot
+    src={IMAGES.molagloraApp}
+    alt="Molaglora mobile app"
+    label="App screen"
+    className="rounded-[14px]"
+    fit="contain"
+  />
+</div>
+
         </div>
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {PROJECTS.map((project, index) => (
-          <div
+        {PROJECTS.map((project) => (
+          <ProjectShowcase
             key={project.title}
-            data-reveal
-            className="flex min-h-[180px] flex-col justify-between gap-4 rounded-[20px] border border-dashed border-fg/25 p-9"
-          >
-            <span className="font-mono text-[11px] text-fg/45">
-              PROJECT — {String(index + 2).padStart(2, "0")}
-            </span>
-            <div>
-              <h3 className="m-0 text-[clamp(24px,2.5vw,34px)] leading-[1.1] font-bold tracking-[-.02em]">
-                {project.title}
-              </h3>
-              <p className="mt-4 mb-0 font-mono text-[11px] leading-[1.6] text-fg/50">
-                {project.stack}
-              </p>
-            </div>
-          </div>
+            project={project}
+          />
         ))}
       </div>
     </section>
@@ -356,13 +483,13 @@ function Work() {
 
 function Skills() {
   return (
-    <section className="px-5 py-[60px] md:px-10">
+    <section className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
       <SectionHeading num="02">Stack</SectionHeading>
-      <div data-reveal className="flex flex-wrap gap-3 font-mono text-sm">
+      <div data-reveal className="flex flex-wrap gap-2 font-mono text-[11px] sm:gap-3 sm:text-sm">
         {SKILLS.map((s) => (
           <span
             key={s}
-            className="cursor-default rounded-full border border-fg/30 px-[22px] py-3 transition-colors hover:border-accent-ink hover:bg-accent hover:text-[#0f0e0c]"
+            className="cursor-default rounded-full border border-fg/30 px-3 py-2 transition-colors hover:border-accent-ink hover:bg-accent hover:text-[#0f0e0c] sm:px-[22px] sm:py-3"
           >
             {s}
           </span>
@@ -374,19 +501,19 @@ function Skills() {
 
 function Experience() {
   return (
-    <section className="px-5 py-[60px] md:px-10">
+    <section className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
       <SectionHeading num="03" className="mb-3">
         Experience
       </SectionHeading>
       <div
         data-reveal
-        className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
+        className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
       >
-        <span className="font-mono text-xs text-fg/50">FREELANCE</span>
-        <span className="text-[22px] font-semibold">
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">FREELANCE</span>
+        <span className="text-[18px] font-semibold sm:text-[22px]">
           Front-End Engineer | IceCode
         </span>
-        <span className="text-[15px] leading-normal text-fg/60">
+        <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
           Developed responsive web applications using React.js and Next.js.
           Built cross-platform mobile applications with React Native.
           Collaborated on SaaS products and client projects.
@@ -394,26 +521,26 @@ function Experience() {
       </div>
       <div
         data-reveal
-        className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
+        className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
       >
-        <span className="font-mono text-xs text-fg/50">2024 - 2026</span>
-        <span className="text-[22px] font-semibold">
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">2024 - 2026</span>
+        <span className="text-[18px] font-semibold sm:text-[22px]">
           IT Technical Support | Industrial Company
         </span>
-        <span className="text-[15px] leading-normal text-fg/60">
+        <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
           Maintained computer systems and networks. Diagnosed hardware and
           software issues. Provided technical support for employees.
         </span>
       </div>
       <div
         data-reveal
-        className="grid grid-cols-1 items-baseline gap-2 border-y border-fg/[.18] py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
+        className="grid grid-cols-1 items-baseline gap-2 border-y border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
       >
-        <span className="font-mono text-xs text-fg/50">FREELANCE</span>
-        <span className="text-[22px] font-semibold">
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">FREELANCE</span>
+        <span className="text-[18px] font-semibold sm:text-[22px]">
           Python Automation Developer | Upwork
         </span>
-        <span className="text-[15px] leading-normal text-fg/60">
+        <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
           Developed automation tools and scripts using Python. Built web
           scraping and data processing solutions. Delivered automation projects
           for international clients.
@@ -423,13 +550,78 @@ function Experience() {
   );
 }
 
+function Certifications() {
+  return (
+    <section id="certifications" className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
+      <SectionHeading num="04">Certifications</SectionHeading>
+      <div className="border-y border-fg/[.18]">
+        {CERTIFICATIONS.map((certification, index) => (
+          <div
+            key={`${certification.title}-${index}`}
+            data-reveal
+            className="grid grid-cols-1 items-center gap-2 border-b border-fg/[.18] px-2 py-4 last:border-b-0 transition-colors hover:bg-panel sm:py-6 md:grid-cols-[90px_1fr_auto] md:gap-5"
+          >
+            <span className="font-mono text-[10px] text-accent-ink sm:text-xs">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 className="m-0 text-[clamp(18px,3vw,34px)] font-semibold tracking-[-.02em]">
+                {certification.title}
+              </h3>
+              <p className="mt-1 mb-0 font-mono text-[10px] tracking-[.06em] text-fg/50 sm:mt-2 sm:text-[11px]">
+                {certification.issuer}
+              </p>
+            </div>
+            <span className="font-mono text-[10px] text-fg/50 sm:text-xs">
+              {certification.date}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Courses() {
+  return (
+    <section id="courses" className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
+      <SectionHeading num="05">Currently Enrolled</SectionHeading>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {CURRENT_COURSES.map((course, index) => (
+          <article
+            key={`${course.title}-${index}`}
+            data-reveal
+            className="group rounded-[20px] border border-fg/20 bg-panel p-5 transition-transform duration-[.3s] hover:-translate-y-1 sm:p-7 md:p-9"
+          >
+            <div className="flex items-center justify-between gap-4 font-mono text-[10px] tracking-[.06em] sm:text-[11px]">
+              <span className="text-fg/50">{course.provider}</span>
+              <span className="rounded-full bg-accent px-2 py-1 text-[#0f0e0c] sm:px-3 sm:py-1.5">
+                IN PROGRESS
+              </span>
+            </div>
+            <h3 className="mt-6 mb-2 text-[clamp(20px,4vw,40px)] leading-[1.08] font-bold tracking-[-.025em] sm:mt-10 sm:mb-3">
+              {course.title}
+            </h3>
+            <p className="m-0 font-mono text-[10px] tracking-[.06em] text-fg/50 sm:text-[11px]">
+              FOCUS — {course.focus}
+            </p>
+            <div className="mt-6 h-1 overflow-hidden rounded-full bg-fg/15 sm:mt-9">
+              <div className="h-full w-1/3 rounded-full bg-accent transition-[width] duration-300 group-hover:w-1/2" />
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function About() {
   return (
     <section
       id="about"
-      className="grid grid-cols-1 items-center gap-10 px-5 py-[60px] md:grid-cols-[280px_1fr] md:gap-14 md:px-10"
+      className="grid grid-cols-1 items-center gap-8 px-4 py-[40px] sm:gap-10 sm:px-5 sm:py-[60px] md:grid-cols-[280px_1fr] md:gap-14 md:px-10"
     >
-      <div data-reveal className="h-[280px] w-[280px]">
+      <div data-reveal className="h-[180px] w-[180px] mx-auto sm:h-[240px] sm:w-[240px] md:h-[280px] md:w-[280px] md:mx-0">
         <ImageSlot
           src={IMAGES.portrait}
           alt="Portrait of Zeyad Mohamed"
@@ -438,9 +630,10 @@ function About() {
         />
       </div>
       <div data-reveal>
-        <span className="font-mono text-xs text-accent-ink">04 — ABOUT</span>
-        <p className="mt-4 mb-0 max-w-[820px] text-[clamp(24px,2.8vw,38px)] leading-[1.35] font-medium">
-I'm Zeyad — a Full Stack Developer passionate about bringing ideas to life. I enjoy taking projects from a sketch on paper to a complete system, designing the database, building the backend, and crafting polished web and mobile experiences.        </p>
+        <span className="font-mono text-[10px] text-accent-ink sm:text-xs">06 — ABOUT</span>
+        <p className="mt-3 mb-0 max-w-[820px] text-[clamp(18px,3.5vw,38px)] leading-[1.35] font-medium sm:mt-4">
+          I'm Zeyad — a Full Stack Developer passionate about bringing ideas to life. I enjoy taking projects from a sketch on paper to a complete system, designing the database, building the backend, and crafting polished web and mobile experiences.
+        </p>
       </div>
     </section>
   );
@@ -448,27 +641,27 @@ I'm Zeyad — a Full Stack Developer passionate about bringing ideas to life. I 
 
 function Books() {
   return (
-    <section id="books" className="px-5 py-[60px] md:px-10">
-      <SectionHeading num="05" className="mb-2.5">
+    <section id="books" className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
+      <SectionHeading num="07" className="mb-2.5">
         Bookshelf
       </SectionHeading>
       <div
         data-reveal
-        className="flex flex-wrap items-end gap-2.5 border-b-[6px] border-fg/[.18] px-2"
+        className="flex flex-wrap items-end gap-1.5 border-b-[4px] border-fg/[.18] px-1 sm:gap-2.5 sm:border-b-[6px] sm:px-2"
       >
         {BOOKS.map((b) => (
           <div
             key={b.title}
             title={b.title}
-            className="flex w-[52px] cursor-default items-center justify-center rounded-t transition-transform duration-[.25s] hover:-translate-y-4"
-            style={{ background: b.bg, color: b.fg, height: b.h }}
+            className="flex w-[36px] sm:w-[44px] md:w-[52px] cursor-default items-center justify-center rounded-t transition-transform duration-[.25s] hover:-translate-y-2 sm:hover:-translate-y-3 md:hover:-translate-y-4"
+            style={{ background: b.bg, color: b.fg, height: `${b.h * 0.7}px` }}
           >
-            <span className="rotate-180 py-3 font-mono text-[11.5px] font-bold tracking-[.04em] whitespace-nowrap [writing-mode:vertical-rl]">
+            <span className="rotate-180 py-2 font-mono text-[9px] font-bold tracking-[.04em] whitespace-nowrap [writing-mode:vertical-rl] sm:py-3 sm:text-[10.5px] md:text-[11.5px]">
               {b.title}
             </span>
           </div>
         ))}
-        <div className="ml-6 pb-3.5 font-mono text-xs text-accent-ink">
+        <div className="ml-2 pb-2 font-mono text-[10px] text-accent-ink sm:ml-6 sm:pb-3.5 sm:text-xs">
           <span className="inline-block animate-[blink_1.6s_infinite]">▮</span>{" "}
           CURRENTLY READING ....
         </div>
@@ -479,20 +672,20 @@ function Books() {
 
 function Blog() {
   return (
-    <section id="blog" className="px-5 py-[60px] md:px-10">
-      <SectionHeading num="06">Writing</SectionHeading>
+    <section id="blog" className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
+      <SectionHeading num="08">Writing</SectionHeading>
       {POSTS.map((p) => (
         <a
           key={p.title}
           href={p.href}
           data-reveal
-          className="grid grid-cols-1 items-baseline gap-1 border-t border-fg/[.18] px-2 py-6 transition-colors hover:bg-panel sm:grid-cols-[140px_1fr_auto] sm:gap-5"
+          className="grid grid-cols-1 items-baseline gap-1 border-t border-fg/[.18] px-2 py-4 transition-colors hover:bg-panel sm:py-6 md:grid-cols-[140px_1fr_auto] md:gap-5"
         >
-          <span className="font-mono text-xs text-fg/50">{p.date}</span>
-          <span className="text-[clamp(20px,2.4vw,30px)] font-semibold">
+          <span className="font-mono text-[10px] text-fg/50 sm:text-xs">{p.date}</span>
+          <span className="text-[clamp(16px,3vw,30px)] font-semibold">
             {p.title}
           </span>
-          <span className="text-[22px] text-accent-ink">→</span>
+          <span className="text-[18px] text-accent-ink sm:text-[22px]">→</span>
         </a>
       ))}
       <div className="border-t border-fg/[.18]" />
@@ -505,19 +698,19 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="px-5 pt-[120px] pb-10 text-center md:px-10"
+      className="px-4 pt-[80px] pb-6 text-center sm:px-5 sm:pt-[120px] sm:pb-10 md:px-10"
     >
-      <span className="font-mono text-xs text-accent-ink">07 — SAY HI</span>
-      <div data-reveal className="mt-5">
+      <span className="font-mono text-[10px] text-accent-ink sm:text-xs">09 — SAY HI</span>
+      <div data-reveal className="mt-4 sm:mt-5">
         <a
           href={`mailto:${LINKS.email}`}
           ref={magnetRef}
-          className="inline-block text-[clamp(40px,7.5vw,110px)] font-bold tracking-[-.03em] break-all text-transparent uppercase will-change-transform [-webkit-text-stroke:2px_var(--fg)] hover:text-accent-ink hover:[-webkit-text-stroke:2px_var(--accent-ink)]"
+          className="inline-block text-[clamp(14px,4vw,42px)] font-bold tracking-[-.02em] break-all text-transparent uppercase will-change-transform [-webkit-text-stroke:1.5px_var(--fg)] hover:text-accent-ink hover:[-webkit-text-stroke:1.5px_var(--accent-ink)] sm:[-webkit-text-stroke:2px_var(--fg)] sm:hover:[-webkit-text-stroke:2px_var(--accent-ink)]"
         >
           {LINKS.email}
         </a>
       </div>
-      <div className="mt-11 flex flex-wrap justify-center gap-[26px] font-mono text-xs">
+      <div className="mt-8 flex flex-wrap justify-center gap-4 font-mono text-[10px] sm:mt-11 sm:gap-[26px] sm:text-xs">
         <a
           href={LINKS.github}
           className="underline underline-offset-4 hover:text-accent-ink"
@@ -534,14 +727,104 @@ function Contact() {
           href={LINKS.Upwork}
           className="underline underline-offset-4 hover:text-accent-ink"
         >
-         Upwork
+          Upwork
         </a>
       </div>
-      <div className="mt-20 flex flex-wrap justify-between gap-2 border-t border-fg/[.18] py-5 font-mono text-[11px] text-fg/40">
+      <div className="mt-12 flex flex-wrap justify-between gap-2 border-t border-fg/[.18] py-4 font-mono text-[10px] text-fg/40 sm:mt-20 sm:py-5 sm:text-[11px]">
         <span>© 2026 ZEYAD MOHAMED</span>
         <span>BUILT WITH REACT, OBVIOUSLY</span>
       </div>
     </section>
+  );
+}
+
+function FloatingCVButton() {
+  return (
+    <a
+      href="https://drive.google.com/file/d/1vkyMIKVm6wpKMphKLz8wQqSDtzBr_tyT/view?usp=drive_link"
+      download
+      className="
+        group
+        fixed bottom-4 right-4 z-50
+        h-12 w-12 sm:h-14 sm:w-14 hover:w-36 sm:hover:w-48
+        overflow-hidden
+        rounded-full
+        bg-accent
+        shadow-lg
+        transition-all duration-300
+        animate-[floaty_4s_ease-in-out_infinite]
+      "
+    >
+      <div className="absolute inset-y-0 left-0 flex h-12 w-12 items-center justify-center sm:h-14 sm:w-14">
+        <Download size={20} className="sm:size-[24px]" />
+      </div>
+
+      <span className="ml-12 flex h-full items-center font-mono text-[10px] font-semibold opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:ml-14 sm:text-sm">
+        Download CV
+      </span>
+    </a>
+  );
+}
+
+function ProjectShowcase({
+  project,
+}: {
+  project: Project;
+}) {
+  const tiltRef = useTilt<HTMLDivElement>();
+
+  return (
+    <div
+      ref={tiltRef}
+      data-reveal
+      className="
+        rounded-[20px]
+        border border-fg/20
+        bg-panel
+        p-4
+        sm:p-6
+        md:p-11
+        will-change-transform
+        [transform-style:preserve-3d]
+      "
+    >
+      <div className="flex min-h-[200px] flex-col justify-between gap-6 sm:min-h-[280px] sm:gap-10">
+        <div>
+          <div className="mb-3 flex flex-wrap gap-1.5 font-mono text-[9px] sm:mb-5 sm:gap-2 sm:text-[11px]">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-fg/30 px-1.5 py-1 sm:px-3 sm:py-[5px]"
+              >
+                {tag}
+              </span>
+            ))}
+
+            {project.badge && (
+              <span className="rounded-full border border-accent px-1.5 py-1 text-accent-ink sm:px-3 sm:py-[5px]">
+                {project.badge}
+              </span>
+            )}
+          </div>
+
+          <h3 className="mb-3 text-[clamp(24px,5vw,64px)] font-bold tracking-[-0.02em] sm:mb-5">
+            {project.title}
+          </h3>
+
+          <p className="max-w-4xl text-[14px] leading-7 text-fg/70 sm:text-[17px] sm:leading-8">
+            {project.description}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-2 font-mono text-[10px] sm:gap-3.5 sm:text-xs">
+          {project.links.map((link) => (
+            <StoreLink key={link.title} href={link.href}>
+              {link.title}
+            </StoreLink>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -552,16 +835,16 @@ function Contact() {
 function SectionHeading({
   num,
   children,
-  className = "mb-9",
+  className = "mb-6 sm:mb-9",
 }: {
   num: string;
   children: ReactNode;
   className?: string;
 }) {
   return (
-    <div className={`flex items-baseline gap-4 ${className}`}>
-      <span className="font-mono text-xs text-accent-ink">{num}</span>
-      <h2 className="m-0 text-[clamp(40px,6vw,88px)] font-bold tracking-[-.02em] uppercase">
+    <div className={`flex items-baseline gap-3 sm:gap-4 ${className}`}>
+      <span className="font-mono text-[10px] text-accent-ink sm:text-xs">{num}</span>
+      <h2 className="m-0 text-[clamp(28px,7vw,88px)] font-bold tracking-[-.02em] uppercase">
         {children}
       </h2>
     </div>
@@ -572,7 +855,7 @@ function StoreLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a
       href={href}
-      className="inline-flex items-center gap-2 rounded-full border border-fg px-[22px] py-3 transition-colors hover:bg-fg hover:text-bg"
+      className="inline-flex items-center gap-2 rounded-full border border-fg px-3 py-2 transition-colors hover:bg-fg hover:text-bg sm:px-[22px] sm:py-3"
     >
       {children}
     </a>
@@ -612,7 +895,7 @@ function ImageSlot({
               "repeating-linear-gradient(45deg, transparent 0 9px, color-mix(in oklab, var(--fg) 6%, transparent) 9px 18px)",
           }}
         >
-          <span className="px-3 text-center font-mono text-[11px] tracking-[.08em] text-fg/45">
+          <span className="px-3 text-center font-mono text-[10px] tracking-[.08em] text-fg/45 sm:text-[11px]">
             {label}
           </span>
         </div>
@@ -666,11 +949,21 @@ function CursorBlob() {
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-    if (prefersReducedMotion()) return;
+    // Rely solely on pointer capability: if coarse-only (pure touch like phones), skip execution
+    const isCoarseOnly = window.matchMedia("(pointer: coarse) and (hover: none)").matches;
+    
+    if (isCoarseOnly || prefersReducedMotion()) {
+      if (dotRef.current) dotRef.current.style.display = 'none';
+      if (ringRef.current) ringRef.current.style.display = 'none';
+      return;
+    }
+
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
+
+    dot.style.display = 'block';
+    ring.style.display = 'block';
 
     let mx = -100;
     let my = -100;
@@ -688,6 +981,7 @@ function CursorBlob() {
       ring.style.width = `${size}px`;
       ring.style.height = `${size}px`;
     };
+
     window.addEventListener("mousemove", onMove);
 
     const loop = () => {
@@ -711,19 +1005,17 @@ function CursorBlob() {
         ref={dotRef}
         aria-hidden
         className="pointer-events-none fixed top-0 left-0 z-[9999] h-3.5 w-3.5 rounded-full bg-white mix-blend-difference"
-        style={{ transform: "translate(-100px,-100px)" }}
+        style={{ transform: "translate(-100px,-100px)", display: 'none' }}
       />
       <div
         ref={ringRef}
         aria-hidden
         className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full border-[1.5px] border-white mix-blend-difference [transition:width_.25s,height_.25s]"
-        style={{ width: 44, height: 44, transform: "translate(-100px,-100px)" }}
+        style={{ width: 44, height: 44, transform: "translate(-100px,-100px)", display: 'none' }}
       />
     </>
   );
-}
-
-function useTilt<T extends HTMLElement>() {
+}function useTilt<T extends HTMLElement>() {
   const ref = useRef<T>(null);
 
   useEffect(() => {
