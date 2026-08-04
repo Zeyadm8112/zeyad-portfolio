@@ -505,51 +505,112 @@ function Experience() {
       <SectionHeading num="03" className="mb-3">
         Experience
       </SectionHeading>
+
       <div
         data-reveal
         className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
       >
-        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">FREELANCE</span>
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">
+          JAN 2026 – PRESENT
+        </span>
         <span className="text-[18px] font-semibold sm:text-[22px]">
-          Front-End Engineer | IceCode
+          Full Stack Developer | IceCodeCo
         </span>
         <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
-          Developed responsive web applications using React.js and Next.js.
-          Built cross-platform mobile applications with React Native.
-          Collaborated on SaaS products and client projects.
+          Developing scalable web applications using Django, React, Next.js, and
+          TypeScript. Building REST APIs, responsive user interfaces, and
+          cross-platform mobile applications while contributing to SaaS products
+          and client solutions.
         </span>
       </div>
+
       <div
         data-reveal
         className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
       >
-        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">2024 - 2026</span>
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">
+          DEC 2023 – JAN 2026
+        </span>
         <span className="text-[18px] font-semibold sm:text-[22px]">
-          IT Technical Support | Industrial Company
+          Technical Support Specialist | Industrial Company
         </span>
         <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
-          Maintained computer systems and networks. Diagnosed hardware and
-          software issues. Provided technical support for employees.
+          Maintained enterprise IT infrastructure, diagnosed hardware and
+          software issues, managed networking and system configurations, and
+          provided technical support to ensure reliable day-to-day operations.
         </span>
       </div>
+
+      <div
+        data-reveal
+        className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
+      >
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">
+          JUL 2023 – AUG 2023
+        </span>
+        <span className="text-[18px] font-semibold sm:text-[22px]">
+          Python Automation &amp; Web Scraping Engineer | Upwork
+        </span>
+        <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
+          Built Python automation tools, web scrapers, and data extraction
+          pipelines using Selenium and related technologies. Delivered reliable
+          automation solutions for international clients.
+        </span>
+      </div>
+
+      <div
+        data-reveal
+        className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
+      >
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">
+          SEP 2022 – MAR 2023
+        </span>
+        <span className="text-[18px] font-semibold sm:text-[22px]">
+          Android Developer Intern | Google
+        </span>
+        <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
+          Developed Android applications using Kotlin, implemented modern mobile
+          development practices, and gained hands-on experience with Android
+          architecture and asynchronous programming.
+        </span>
+      </div>
+
+      <div
+        data-reveal
+        className="grid grid-cols-1 items-baseline gap-2 border-t border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
+      >
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">
+          JUL 2022 – AUG 2022
+        </span>
+        <span className="text-[18px] font-semibold sm:text-[22px]">
+          Flutter Mobile Developer Intern | ITI
+        </span>
+        <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
+          Built cross-platform mobile applications with Flutter and Dart while
+          applying object-oriented programming principles and modern mobile UI
+          development practices.
+        </span>
+      </div>
+
       <div
         data-reveal
         className="grid grid-cols-1 items-baseline gap-2 border-y border-fg/[.18] py-5 sm:py-[26px] md:grid-cols-[200px_1fr_1fr] md:gap-5"
       >
-        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">FREELANCE</span>
+        <span className="font-mono text-[10px] text-fg/50 sm:text-xs">
+          FEB 2022 – MAR 2022
+        </span>
         <span className="text-[18px] font-semibold sm:text-[22px]">
-          Python Automation Developer | Upwork
+          Computer Science Intern | ITI
         </span>
         <span className="text-[13px] leading-normal text-fg/60 sm:text-[15px]">
-          Developed automation tools and scripts using Python. Built web
-          scraping and data processing solutions. Delivered automation projects
-          for international clients.
+          Learned software engineering fundamentals including C#, cybersecurity,
+          algorithms, and problem-solving while completing CS50 practical technical
+          projects.
         </span>
       </div>
     </section>
   );
 }
-
 function Certifications() {
   return (
     <section id="certifications" className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
