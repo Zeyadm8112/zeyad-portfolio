@@ -13,13 +13,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zeyad Mohamed — Full-Stack Engineer",
+  title: "Zeyad Mohamed — IT Technical Support",
   description:
-    "I build fast, playful interfaces for the web and both app stores — React on the front, React Native everywhere else.",
+    "IT Technical Support specialist in Suez, Egypt — Windows & Linux, Active Directory, networking, Microsoft 365, Intune and cybersecurity.",
 };
 
-// Runs before paint so a saved dark theme doesn't flash light first.
-const themeInit = `try{if(localStorage.getItem("zm-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
+// Runs before paint: apply a saved theme choice (otherwise CSS follows the
+// OS setting) and skip the boot animation if it already played this session.
+const themeInit = `try{var t=localStorage.getItem("zm-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}try{if(sessionStorage.getItem("zm-booted"))document.documentElement.dataset.booted="1"}catch(e){}`;
 
 export default function RootLayout({
   children,

@@ -1,58 +1,165 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Theme tokens — "NOC / SOC console" look.
+   Follows the OS theme by default; the toggle stores an explicit choice.
+   Light mode is a clean "Server Manager" daylight theme.
+   --------------------------------------------------------------------------- */
+
 :root {
-  --bg: #f1ede4;
-  --fg: #17150f;
-  --panel: #fbf8f1;
-  --accent: #c8f04b;
-  --accent-ink: color-mix(in oklab, #c8f04b 52%, #26241c);
+  --bg: #05080c;
+  --fg: #dbe7ef;
+  --panel: #0a1118;
+  --panel-2: #0f1922;
+  --line: color-mix(in oklab, var(--fg) 14%, transparent);
+  --accent: #39ff88;
+  --accent-ink: #39ff88;
+  --accent-2: #3ac8ff;
+  --warn: #ffb547;
+  --danger: #ff5c5c;
+  --on-accent: #03120a;
+  color-scheme: dark;
 }
 
-:root[data-theme="dark"] {
-  --bg: #0f0e0c;
-  --fg: #f2efe9;
-  --panel: #161512;
-  --accent-ink: #c8f04b;
+:root[data-theme="light"] {
+  --bg: #eaf0f4;
+  --fg: #0a1822;
+  --panel: #ffffff;
+  --panel-2: #f3f7fa;
+  --accent: #1fd16f;
+  --accent-ink: #087a3c;
+  --accent-2: #0a6fb8;
+  --warn: #b86e00;
+  --danger: #d93636;
+  color-scheme: light;
+}
+
+/* No explicit choice yet → follow the operating system */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #eaf0f4;
+    --fg: #0a1822;
+    --panel: #ffffff;
+    --panel-2: #f3f7fa;
+    --accent: #1fd16f;
+    --accent-ink: #087a3c;
+    --accent-2: #0a6fb8;
+    --warn: #b86e00;
+    --danger: #d93636;
+    color-scheme: light;
+  }
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
   --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
+  --color-accent-2: var(--accent-2);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-on-accent: var(--on-accent);
   --font-sans: var(--font-space-grotesk);
   --font-mono: var(--font-jetbrains-mono);
 }
 
+/* ---------------------------------------------------------------------------
+   Keyframes
+   --------------------------------------------------------------------------- */
+
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }
 
 @keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.2;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
 @keyframes floaty {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-4deg);
-  }
-  50% {
-    transform: translateY(-14px) rotate(-2deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-14px) rotate(-1deg); }
 }
+
+@keyframes led {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 1; }
+  45% { opacity: 0.15; }
+  50% { opacity: 1; }
+  70% { opacity: 0.25; }
+  74% { opacity: 1; }
+}
+
+@keyframes sweep {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ping-ring {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes stripes {
+  to { background-position: 28px 0; }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes glitch-a {
+  0% { clip-path: inset(10% 0 70% 0); transform: translate(-4px, 0); }
+  25% { clip-path: inset(60% 0 10% 0); transform: translate(4px, 0); }
+  50% { clip-path: inset(30% 0 40% 0); transform: translate(-2px, 0); }
+  75% { clip-path: inset(80% 0 5% 0); transform: translate(3px, 0); }
+  100% { clip-path: inset(0 0 90% 0); transform: translate(0, 0); }
+}
+
+@keyframes glitch-auto {
+  0%, 93%, 100% { opacity: 0; }
+  94%, 97% { opacity: 0.85; }
+}
+
+@keyframes port-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes packet {
+  from { left: 0; }
+  to { left: calc(100% - 6px); }
+}
+
+.packet {
+  animation: packet 1.8s linear infinite;
+}
+
+@keyframes boot-line {
+  to { opacity: 1; }
+}
+
+@keyframes boot-out {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+   --------------------------------------------------------------------------- */
 
 html {
   scroll-behavior: smooth;
@@ -68,10 +175,481 @@ body {
     color 0.4s ease;
 }
 
+/* Faint network-grid backdrop behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--fg) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--fg) 5%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 85%);
+}
+
 ::selection {
   background: var(--accent);
-  color: #0f0e0c;
+  color: var(--on-accent);
 }
+
+@layer components {
+/* ---------------------------------------------------------------------------
+   Boot screen (pure CSS timeline; skipped once seen this session)
+   --------------------------------------------------------------------------- */
+
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 20px;
+  background: #020406;
+  color: #9fb3c0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  line-height: 1.75;
+  animation: boot-out 0.45s ease 2.1s forwards;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .boot { padding: 40px; font-size: 13.5px; }
+}
+
+.boot-line {
+  opacity: 0;
+  animation: boot-line 0.01s linear forwards;
+}
+
+.boot-ok { color: #39ff88; }
+.boot-dim { color: #50606c; }
+
+html[data-booted] .boot,
+.boot.is-done {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Window chrome (RDP / MMC style)
+   --------------------------------------------------------------------------- */
+
+.win {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--bg) 60%, transparent),
+    0 24px 60px -30px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+.win-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: color-mix(in oklab, var(--fg) 60%, transparent);
+}
+
+.win-ctrl {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.win-ctrl span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 11px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.win-ctrl span:last-child:hover {
+  background: var(--danger);
+  color: #fff;
+}
+
+.win-ctrl span:not(:last-child):hover {
+  background: color-mix(in oklab, var(--fg) 12%, transparent);
+}
+
+/* ---------------------------------------------------------------------------
+   Hero bits
+   --------------------------------------------------------------------------- */
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 2px,
+    rgb(0 0 0 / 0.12) 2px 3px
+  );
+}
+
+.scanbeam::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in oklab, var(--accent) 22%, transparent),
+    transparent
+  );
+  height: 40%;
+  animation: scan 3.6s linear infinite;
+}
+
+.corners {
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  z-index: 3;
+  background:
+    linear-gradient(var(--accent), var(--accent)) top left / 14px 2px,
+    linear-gradient(var(--accent), var(--accent)) top left / 2px 14px,
+    linear-gradient(var(--accent), var(--accent)) top right / 14px 2px,
+    linear-gradient(var(--accent), var(--accent)) top right / 2px 14px,
+    linear-gradient(var(--accent), var(--accent)) bottom left / 14px 2px,
+    linear-gradient(var(--accent), var(--accent)) bottom left / 2px 14px,
+    linear-gradient(var(--accent), var(--accent)) bottom right / 14px 2px,
+    linear-gradient(var(--accent), var(--accent)) bottom right / 2px 14px;
+  background-repeat: no-repeat;
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.glitch::before {
+  -webkit-text-stroke: 2px var(--accent-2);
+  animation:
+    glitch-a 0.5s steps(2) infinite,
+    glitch-auto 7s linear infinite;
+}
+
+.glitch::after {
+  -webkit-text-stroke: 2px var(--accent);
+  animation:
+    glitch-a 0.42s steps(2) infinite reverse,
+    glitch-auto 7s linear 0.08s infinite;
+}
+
+.glitch:hover::before,
+.glitch:hover::after {
+  animation: glitch-a 0.35s steps(2) infinite;
+  opacity: 0.85;
+}
+
+/* ---------------------------------------------------------------------------
+   Switch panel (skills)
+   --------------------------------------------------------------------------- */
+
+.switch {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--fg) 4%, var(--panel)), var(--panel));
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, var(--fg) 8%, transparent),
+    0 30px 60px -40px color-mix(in oklab, var(--accent-2) 50%, transparent);
+}
+
+.switch-ear {
+  background-image: radial-gradient(circle, color-mix(in oklab, var(--fg) 30%, transparent) 3px, transparent 4px);
+  background-size: 100% 50%;
+  background-repeat: repeat-y;
+  background-position: center;
+}
+
+.rj45 {
+  position: relative;
+  width: 44px;
+  height: 34px;
+  border-radius: 4px;
+  background: #020507;
+  border: 2px solid color-mix(in oklab, var(--fg) 22%, #000);
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 72% 78%, 72% 100%, 28% 100%, 28% 78%, 0 78%);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.rj45::after {
+  /* gold pins */
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  right: 7px;
+  height: 7px;
+  background: repeating-linear-gradient(90deg, #c9a24a 0 2px, transparent 2px 4px);
+  opacity: 0.85;
+}
+
+.port:hover .rj45,
+.port:focus-visible .rj45 {
+  border-color: var(--accent);
+  box-shadow: 0 0 18px color-mix(in oklab, var(--accent) 60%, transparent);
+}
+
+.port.is-empty .rj45::after {
+  opacity: 0.25;
+}
+
+.led {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.led.amber {
+  background: var(--warn);
+  box-shadow: 0 0 8px var(--warn);
+  animation: led 1.9s steps(1) infinite;
+}
+
+.led.off {
+  background: color-mix(in oklab, var(--fg) 18%, transparent);
+  box-shadow: none;
+  animation: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Active Directory tree (certifications)
+   --------------------------------------------------------------------------- */
+
+.ad-tree {
+  position: relative;
+  margin-left: 14px;
+  padding-left: 22px;
+}
+
+.ad-tree::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 28px;
+  border-left: 1px dashed color-mix(in oklab, var(--fg) 30%, transparent);
+}
+
+.ad-tree > li {
+  position: relative;
+}
+
+.ad-tree > li::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: 28px;
+  width: 16px;
+  border-top: 1px dashed color-mix(in oklab, var(--fg) 30%, transparent);
+}
+
+/* ---------------------------------------------------------------------------
+   Progress (courses)
+   --------------------------------------------------------------------------- */
+
+.stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--accent) 0 7px,
+    color-mix(in oklab, var(--accent) 65%, var(--bg)) 7px 14px
+  );
+  background-size: 28px 100%;
+  animation: stripes 0.8s linear infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Radar (about)
+   --------------------------------------------------------------------------- */
+
+.radar {
+  position: relative;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, transparent 0 58%, color-mix(in oklab, var(--accent) 22%, transparent) 58% calc(58% + 1px), transparent calc(58% + 1px) 77%, color-mix(in oklab, var(--accent) 22%, transparent) 77% calc(77% + 1px), transparent calc(77% + 1px)),
+    linear-gradient(transparent calc(50% - 0.5px), color-mix(in oklab, var(--accent) 18%, transparent) calc(50% - 0.5px) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(90deg, transparent calc(50% - 0.5px), color-mix(in oklab, var(--accent) 18%, transparent) calc(50% - 0.5px) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: conic-gradient(from 0deg, color-mix(in oklab, var(--accent) 45%, transparent), transparent 22%);
+  animation: sweep 4s linear infinite;
+}
+
+.blip {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.blip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  animation: ping-ring 2s ease-out infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Server rack (bookshelf)
+   --------------------------------------------------------------------------- */
+
+.rack {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--fg) 6%, var(--bg));
+  padding: 10px 0;
+}
+
+.rack-rail {
+  width: 22px;
+  flex-shrink: 0;
+  background-color: color-mix(in oklab, var(--fg) 10%, var(--bg));
+  background-image: radial-gradient(circle, color-mix(in oklab, var(--bg) 85%, #000) 2.5px, transparent 3px);
+  background-size: 100% 15px;
+  background-position: center 4px;
+}
+
+.vents {
+  background-image: repeating-linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--fg) 22%, transparent) 0 2px,
+    transparent 2px 5px
+  );
+}
+
+/* ---------------------------------------------------------------------------
+   Reticle cursor
+   --------------------------------------------------------------------------- */
+
+.reticle::before,
+.reticle::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+}
+
+.reticle::before {
+  left: 50%;
+  top: -7px;
+  bottom: -7px;
+  width: 1.5px;
+  transform: translateX(-50%);
+  mask: linear-gradient(#000 0 7px, transparent 7px calc(100% - 7px), #000 calc(100% - 7px));
+}
+
+.reticle::after {
+  top: 50%;
+  left: -7px;
+  right: -7px;
+  height: 1.5px;
+  transform: translateY(-50%);
+  mask: linear-gradient(90deg, #000 0 7px, transparent 7px calc(100% - 7px), #000 calc(100% - 7px));
+}
+}
+
+/* ---------------------------------------------------------------------------
+   Certificate cards (certifications)
+   --------------------------------------------------------------------------- */
+
+@keyframes holo-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sheen {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  60%, 100% { transform: translateX(220%) skewX(-18deg); }
+}
+
+@layer components {
+  .cert-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Guilloché-style security pattern, like printed certificates */
+  .cert-paper {
+    background-color: var(--panel);
+    background-image:
+      repeating-radial-gradient(circle at 100% 0%, transparent 0 9px, color-mix(in oklab, var(--accent-2) 9%, transparent) 9px 10px),
+      repeating-radial-gradient(circle at 0% 100%, transparent 0 11px, color-mix(in oklab, var(--accent) 8%, transparent) 11px 12px);
+    box-shadow: inset 0 0 0 5px var(--panel), inset 0 0 0 6px color-mix(in oklab, var(--fg) 12%, transparent);
+  }
+
+  .cert-paper::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 40%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, color-mix(in oklab, #fff 10%, transparent), transparent);
+    transform: translateX(-120%) skewX(-18deg);
+  }
+
+  .cert:hover .cert-paper::after,
+  .cert:focus-visible .cert-paper::after {
+    animation: sheen 1.4s ease;
+  }
+
+  /* Holographic seal */
+  .holo {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .holo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 999px;
+    background: conic-gradient(from 0deg, var(--accent), var(--accent-2), #b388ff, var(--warn), var(--accent));
+    mask: repeating-conic-gradient(#000 0 6deg, transparent 6deg 9deg);
+    animation: holo-spin 9s linear infinite;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -83,5 +661,8 @@ body {
   }
   html {
     scroll-behavior: auto;
+  }
+  .boot {
+    display: none;
   }
 }
