@@ -145,6 +145,7 @@ const CERTIFICATIONS: { title: string; issuer: string; purpose: CertPurpose }[] 
   { title: "Hardware and Upgrade Support", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
   { title: "Security and Connectivity Support", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
   { title: "IT Customer Support Basics", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
+  { title: "Service Level Agreements & Quality of Service for Beginners", issuer: "Udemy", purpose: "IT SUPPORT" },
   { title: "IT Support & Troubleshooting Tips for Clinical Environments", issuer: "Udemy", purpose: "IT SUPPORT" },
   { title: "Mastering Windows Security", issuer: "Udemy", purpose: "IT SUPPORT" },
   { title: "Computer Networking Basics for Desktop Support Technicians", issuer: "Udemy", purpose: "IT SUPPORT" },
