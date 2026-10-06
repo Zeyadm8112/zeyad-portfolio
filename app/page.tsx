@@ -19,8 +19,8 @@ const IMAGES: {
   heroPhoto: string | null;
   portrait: string | null;
 } = {
-  heroPhoto: "/me.jpg",
-  portrait: "/me2.jpg",
+  heroPhoto: "/z1.png",
+  portrait: "/z2.png",
 };
 
 const LINKS = {
