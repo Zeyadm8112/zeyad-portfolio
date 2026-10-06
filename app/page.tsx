@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { Download, Moon, Sun } from "lucide-react";
 import {
@@ -20,8 +19,8 @@ const IMAGES: {
   heroPhoto: string | null;
   portrait: string | null;
 } = {
-  heroPhoto: "/me.jpg",
-  portrait: "/me2.jpg",
+  heroPhoto: "/z1.png",
+  portrait: "/z2.png",
 };
 
 const LINKS = {
@@ -46,9 +45,9 @@ const PROFILE = {
   tagline:
     "Keeping users productive and systems healthy — Windows, Active Directory, networks, Linux and security.",
   summary:
-    "IT Technical Support professional with 2 years of experience supporting users in an enterprise environment. Skilled in Windows and Linux systems, Active Directory, networking, hardware and software troubleshooting, device setup, and system diagnostics. Familiar with Microsoft 365, Intune, remote support, ticketing systems, and IT security practices.",
+    "I'm 24-year-old IT Technical Support professional with 2+ years of experience supporting users in enterprise environments. Interested in IT Technical Support and Application Support, with skills in Windows and Linux systems, Active Directory, networking, hardware and software troubleshooting, device setup, and system diagnostics. Familiar with Microsoft 365, Intune, remote support, ticketing systems, and IT security practices.",
   summaryMore:
-    "Strong problem-solving and communication skills, with the ability to troubleshoot issues, document solutions, and escalate complex incidents with clear technical details. Currently studying Computer Science, with significant experience in Python, PowerShell, and full-stack development.",
+    "Strong problem-solving and communication skills, with the ability to troubleshoot issues, investigate root causes, document solutions, and escalate complex incidents with clear technical details. Currently studying Computer Science, with hands-on experience in Python, PowerShell, SQL, and full-stack development, allowing me to approach technical issues from both the infrastructure and application sides.",
   education: {
     degree: "Computer Science Student",
     school: "Higher Institute for Computer Science & Information Systems (New Cairo Academy)",
@@ -141,47 +140,71 @@ const SKILL_GROUPS: {
 type CertPurpose = "SECURITY" | "NETWORKING" | "IT SUPPORT" | "COMPUTER SCIENCE" | "DEVELOPMENT";
 
 const CERTIFICATIONS: { title: string; issuer: string; purpose: CertPurpose }[] = [
+  { title: "Operating Systems Support", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
+  { title: "Master MCSE : Windows Server 2022 OS Administration Course", issuer: "Udemy", purpose: "IT SUPPORT" },
+  { title: "Hardware and Upgrade Support", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
+  { title: "Security and Connectivity Support", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
+  { title: "IT Customer Support Basics", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
+  { title: "Service Level Agreements & Quality of Service for Beginners", issuer: "Udemy", purpose: "IT SUPPORT" },
   { title: "IT Support & Troubleshooting Tips for Clinical Environments", issuer: "Udemy", purpose: "IT SUPPORT" },
+  { title: "Mastering Windows Security", issuer: "Udemy", purpose: "IT SUPPORT" },
+  { title: "Computer Networking Basics for Desktop Support Technicians", issuer: "Udemy", purpose: "IT SUPPORT" },
+  { title: "Networking Basics", issuer: "Cisco Network Academy", purpose: "NETWORKING" },
   { title: "IP Addressing and Subnetting — Zero to Hero", issuer: "Udemy", purpose: "NETWORKING" },
   { title: "Ethical Hacker", issuer: "Cisco Networking Academy", purpose: "SECURITY" },
   { title: "OWASP Top 10 (Web)", issuer: "MaharaTech", purpose: "SECURITY" },
   { title: "Malware Analysis Fundamentals", issuer: "MaharaTech", purpose: "SECURITY" },
+  { title: "Nmap Advanced Techniques Course A To Z On Network Scan ", issuer: "MaharaTech", purpose: "SECURITY" },
   { title: "Reverse Code Engineering", issuer: "MaharaTech", purpose: "SECURITY" },
   { title: "Google Africa Android Developer Scholarship Program", issuer: "Google Developers", purpose: "DEVELOPMENT" },
+  { title: "Python and Flask Demonstration Practice Course", issuer: "Udemy", purpose: "DEVELOPMENT" },
+  { title: "Python And Flask Framework Complete Course for beginners", issuer: "Udemy", purpose: "DEVELOPMENT" },
+  { title: "Agile Crash Course For Beginners", issuer: "Udemy", purpose: "DEVELOPMENT" },
   { title: "CS50x", issuer: "Harvard edX", purpose: "COMPUTER SCIENCE" },
   { title: "ITI Program 101 — Intro to CS", issuer: "ITI", purpose: "COMPUTER SCIENCE" },
+  { title: "Freelancing basics", issuer: "MaharaTech", purpose: "COMPUTER SCIENCE" },
 ];
 
 const CURRENT_COURSES = [
   {
+    title: "Practical Cisco Networking Labs in Cisco Packet Tracer",
+    provider: "Udemy",
+    focus: "Cisco Networking, Routing & Network Troubleshooting",
+  },
+  {
+    title: "Server Infrastructure - IT Technical Support (Level 3) Guide",
+    provider: "Udemy",
+    focus: "L3 Support, Servers & Enterprise IT Infrastructure",
+  },
+  {
+    title: "Azure Entra ID: Identity Management and Architecture",
+    provider: "Udemy",
+    focus: "Microsoft Entra ID & Identity Management",
+  },
+  {
     title: "SQL Masterclass: From Absolute Beginner to Developer",
     provider: "Udemy",
-    focus: "Advanced SQL, Database Design & Query Optimization",
+    focus: "SQL, Database Management & Query Optimization",
   },
   {
-    title: "API Testing with Python – Manual & Automation using Pytest",
+    title: "PowerShell Masterclass: Essential IT Automation & Scripting",
     provider: "Udemy",
-    focus: "API Testing, Pytest Automation & REST Validation",
+    focus: "PowerShell, IT Automation & System Administration",
   },
   {
-    title: "Microsoft 365 Productivity Mastery: Save 10+ Hours a Week",
+    title: "Linux Admin: Build Job-Ready Skills with 6 Projects",
     provider: "Udemy",
-    focus: "Microsoft 365, Workflow Automation & Productivity",
+    focus: "Linux Administration & Troubleshooting",
   },
   {
-    title: "OWASP Security Testing of Web, API, Android & Source Code App",
+    title: "Mastering of Python Script for System Administrator",
     provider: "Udemy",
-    focus: "Application Security, OWASP Testing & Vulnerability Assessment",
+    focus: "Python Automation & System Administration",
   },
   {
-    title: "Code Reviews for Secure, Clean, and Scalable Code",
+    title: "pfSense: Network Security and Firewall Management",
     provider: "Udemy",
-    focus: "Secure Code Reviews, Clean Architecture & Best Practices",
-  },
-  {
-    title: "Governance, Risk and Compliance (GRC) and Data Privacy",
-    provider: "Udemy",
-    focus: "Cybersecurity Governance, Risk Management & Data Privacy",
+    focus: "Firewall Management & Network Security",
   },
 ];
 
@@ -1453,11 +1476,12 @@ function Experience() {
 
 const CERT_PURPOSES: { key: CertPurpose | "ALL"; label: string; icon: string }[] = [
   { key: "ALL", label: "All purposes", icon: "✱" },
-  { key: "SECURITY", label: "Security", icon: "⛨" },
-  { key: "NETWORKING", label: "Networking", icon: "⇄" },
   { key: "IT SUPPORT", label: "IT Support", icon: "⚙" },
-  { key: "COMPUTER SCIENCE", label: "Computer Science", icon: "λ" },
+  { key: "NETWORKING", label: "Networking", icon: "⇄" },
+  { key: "SECURITY", label: "Security", icon: "⛨" },
   { key: "DEVELOPMENT", label: "Development", icon: "</>" },
+  { key: "COMPUTER SCIENCE", label: "Computer Science", icon: "🖥" },
+  
 ];
 
 // FNV-1a → deterministic hex, so serials/thumbprints are stable on server & client
@@ -1844,19 +1868,6 @@ function About() {
               {PROFILE.summaryMore}
             </p>
 
-            <div className="mt-7 font-mono text-[11px] text-fg/55 sm:text-[12px]">
-              <span className="text-accent-ink">zeyad@srv-01:~$</span> cat education.txt
-            </div>
-            <div className="mt-3 flex flex-wrap items-start justify-between gap-3 rounded-[10px] border border-line bg-panel-2/70 px-4 py-3.5">
-              <div>
-                <div className="text-[16px] font-semibold sm:text-[18px]">{PROFILE.education.degree}</div>
-                <div className="mt-1 text-[13px] text-fg/60 sm:text-[14px]">{PROFILE.education.school}</div>
-              </div>
-              <span className="rounded-[6px] border border-accent-ink/50 bg-accent/10 px-2 py-1 font-mono text-[10px] text-accent-ink sm:text-[11px]">
-                {PROFILE.education.date}
-              </span>
-            </div>
-
             <div className="mt-5 font-mono text-[11px] sm:text-[12px]">
               <span className="text-accent-ink">zeyad@srv-01:~$</span>{" "}
               <span className="inline-block h-[1.05em] w-[0.6em] translate-y-[2px] animate-[caret_1s_infinite] bg-accent" />
@@ -1964,7 +1975,7 @@ function Contact() {
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-3 font-mono text-[10px] sm:mt-10 sm:gap-4 sm:text-xs">
           {[
-            [LINKS.whatsapp, `WHATSAPP ${LINKS.whatsappLabel}`],
+            [LINKS.whatsapp, "WHATSAPP" ],
             [LINKS.linkedin, "LINKEDIN"],
             [LINKS.github, "GITHUB"],
             [LINKS.medium, "MEDIUM"],
