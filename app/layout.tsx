@@ -12,10 +12,49 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+// Absolute base for share-preview images. Set NEXT_PUBLIC_SITE_URL to the
+// real domain (e.g. https://zeyad.dev); on Vercel it falls back to the
+// production domain automatically.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
+const title = "Zeyad Mohamed — IT Technical Support";
+const description =
+  "IT Technical Support specialist in Suez & 6th of October City, Egypt — Windows & Linux, Active Directory, networking, Microsoft 365, Intune and cybersecurity.";
+
 export const metadata: Metadata = {
-  title: "Zeyad Mohamed — IT Technical Support",
-  description:
-    "IT Technical Support specialist in Suez, Egypt — Windows & Linux, Active Directory, networking, Microsoft 365, Intune and cybersecurity.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  applicationName: "Zeyad Mohamed",
+  authors: [{ name: "Zeyad Mohamed" }],
+  keywords: [
+    "IT Technical Support",
+    "Windows Server",
+    "Active Directory",
+    "Networking",
+    "Linux",
+    "Cybersecurity",
+    "Microsoft 365",
+    "Intune",
+    "Egypt",
+  ],
+  // The preview image comes from app/opengraph-image.png and app/twitter-image.png
+  openGraph: {
+    type: "website",
+    siteName: "Zeyad Mohamed",
+    title,
+    description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 // Runs before paint: apply a saved theme choice (otherwise CSS follows the
