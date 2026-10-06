@@ -118,8 +118,28 @@ const SKILL_GROUPS: {
       { name: "Agile Development Practices", detail: "Scrum, iterative delivery, collaboration" },
     ],
   },
+{
+  vlan: 40,
+
+  name: "Database",
+
+  label: "Database",
+
+  skills: [
+    { name: "SQL" },
+    { name: "Sql Server" },
+    { name: "PostgreSQL" },
+    { name: "SQLite" },
+    { name: "Database Queries & Data Retrieval" },
+    { name: "JOINs & Subqueries" },
+    { name: "Filtering, Sorting & Aggregation" },
+    { name: "Data Validation & Troubleshooting" },
+    { name: "Database Design Fundamentals" },
+    { name: "CRUD Operations" },
+  ],
+},
   {
-    vlan: 40,
+    vlan: 50,
     name: "SOFT-SKILLS",
     label: "Soft Skills",
     skills: [
@@ -135,7 +155,7 @@ const SKILL_GROUPS: {
       { name: "Effective Issue Escalation with Clear Explanations" },
     ],
   },
-];
+  ];
 
 type CertPurpose = "SECURITY" | "NETWORKING" | "IT SUPPORT" | "COMPUTER SCIENCE" | "DEVELOPMENT";
 
