@@ -50,7 +50,8 @@ const PROFILE = {
     "Strong problem-solving and communication skills, with the ability to troubleshoot issues, investigate root causes, document solutions, and escalate complex incidents with clear technical details. Currently studying Computer Science, with hands-on experience in Python, PowerShell, SQL, and full-stack development, allowing me to approach technical issues from both the infrastructure and application sides.",
   education: {
     degree: "Computer Science Student",
-    school: "Higher Institute for Computer Science & Information Systems (New Cairo Academy)",
+    school:
+      "Higher Institute for Computer Science & Information Systems (New Cairo Academy)",
     date: "2024 – Present",
   },
 };
@@ -73,11 +74,15 @@ const SKILL_GROUPS: {
       { name: "Windows Server & Active Directory Management" },
       {
         name: "System Monitoring & Diagnostics",
-        detail: "Sergei Strelec Toolkit, system logs, disk utilities, partitions, backup & restore",
+        detail:
+          "Sergei Strelec Toolkit, system logs, disk utilities, partitions, backup & restore",
       },
       { name: "Switch Configuration Assistance" },
       { name: "Remote Connections & Remote Desktop Tools" },
-      { name: "Software Installation & Support", detail: "including issue resolution" },
+      {
+        name: "Software Installation & Support",
+        detail: "including issue resolution",
+      },
       { name: "Security Policy Enforcement & Compliance" },
       { name: "Microsoft 365 Administration" },
       { name: "Intune Device Management" },
@@ -107,37 +112,58 @@ const SKILL_GROUPS: {
     name: "SCRIPTING",
     label: "Programming",
     skills: [
-      { name: "Python Scripting", detail: "automation and troubleshooting tasks" },
-      { name: "PowerShell & Bash Scripting", detail: "system administration and automation" },
-      { name: "API Integration & Testing", detail: "REST APIs, status codes, error handling" },
-      { name: "Debugging & Log Analysis", detail: "frontend, backend, and server logs" },
+      {
+        name: "Python Scripting",
+        detail: "automation and troubleshooting tasks",
+      },
+      {
+        name: "PowerShell & Bash Scripting",
+        detail: "system administration and automation",
+      },
+      {
+        name: "API Integration & Testing",
+        detail: "REST APIs, status codes, error handling",
+      },
+      {
+        name: "Debugging & Log Analysis",
+        detail: "frontend, backend, and server logs",
+      },
       { name: "Full-stack Development", detail: "Django & Next.js" },
       { name: "Mobile App Development" },
-      { name: "SQL Databases", detail: "PostgreSQL, schema design, query troubleshooting" },
-      { name: "Git & GitHub Version Control", detail: "collaboration and documentation" },
-      { name: "Agile Development Practices", detail: "Scrum, iterative delivery, collaboration" },
+      {
+        name: "SQL Databases",
+        detail: "PostgreSQL, schema design, query troubleshooting",
+      },
+      {
+        name: "Git & GitHub Version Control",
+        detail: "collaboration and documentation",
+      },
+      {
+        name: "Agile Development Practices",
+        detail: "Scrum, iterative delivery, collaboration",
+      },
     ],
   },
-{
-  vlan: 40,
+  {
+    vlan: 40,
 
-  name: "Database",
+    name: "Database",
 
-  label: "Database",
+    label: "Database",
 
-  skills: [
-    { name: "SQL" },
-    { name: "Sql Server" },
-    { name: "PostgreSQL" },
-    { name: "SQLite" },
-    { name: "Database Queries & Data Retrieval" },
-    { name: "JOINs & Subqueries" },
-    { name: "Filtering, Sorting & Aggregation" },
-    { name: "Data Validation & Troubleshooting" },
-    { name: "Database Design Fundamentals" },
-    { name: "CRUD Operations" },
-  ],
-},
+    skills: [
+      { name: "SQL" },
+      { name: "Sql Server" },
+      { name: "PostgreSQL" },
+      { name: "SQLite" },
+      { name: "Database Queries & Data Retrieval" },
+      { name: "JOINs & Subqueries" },
+      { name: "Filtering, Sorting & Aggregation" },
+      { name: "Data Validation & Troubleshooting" },
+      { name: "Database Design Fundamentals" },
+      { name: "CRUD Operations" },
+    ],
+  },
   {
     vlan: 50,
     name: "SOFT-SKILLS",
@@ -155,34 +181,127 @@ const SKILL_GROUPS: {
       { name: "Effective Issue Escalation with Clear Explanations" },
     ],
   },
-  ];
+];
 
-type CertPurpose = "SECURITY" | "NETWORKING" | "IT SUPPORT" | "COMPUTER SCIENCE" | "DEVELOPMENT";
+type CertPurpose =
+  | "SECURITY"
+  | "NETWORKING"
+  | "IT SUPPORT"
+  | "COMPUTER SCIENCE"
+  | "DEVELOPMENT";
 
-const CERTIFICATIONS: { title: string; issuer: string; purpose: CertPurpose }[] = [
-  { title: "Operating Systems Support", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
-  { title: "Master MCSE : Windows Server 2022 OS Administration Course", issuer: "Udemy", purpose: "IT SUPPORT" },
-  { title: "Hardware and Upgrade Support", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
-  { title: "Security and Connectivity Support", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
-  { title: "IT Customer Support Basics", issuer: "Cisco Netwrok Academy", purpose: "IT SUPPORT" },
-  { title: "Service Level Agreements & Quality of Service for Beginners", issuer: "Udemy", purpose: "IT SUPPORT" },
-  { title: "IT Support & Troubleshooting Tips for Clinical Environments", issuer: "Udemy", purpose: "IT SUPPORT" },
-  { title: "Mastering Windows Security", issuer: "Udemy", purpose: "IT SUPPORT" },
-  { title: "Computer Networking Basics for Desktop Support Technicians", issuer: "Udemy", purpose: "IT SUPPORT" },
-  { title: "Networking Basics", issuer: "Cisco Network Academy", purpose: "NETWORKING" },
-  { title: "IP Addressing and Subnetting — Zero to Hero", issuer: "Udemy", purpose: "NETWORKING" },
-  { title: "Ethical Hacker", issuer: "Cisco Networking Academy", purpose: "SECURITY" },
+const CERTIFICATIONS: {
+  title: string;
+  issuer: string;
+  purpose: CertPurpose;
+}[] = [
+  {
+    title: "Operating Systems Support",
+    issuer: "Cisco Netwrok Academy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "Master MCSE : Windows Server 2022 OS Administration Course",
+    issuer: "Udemy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "Hardware and Upgrade Support",
+    issuer: "Cisco Netwrok Academy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "Security and Connectivity Support",
+    issuer: "Cisco Netwrok Academy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "IT Customer Support Basics",
+    issuer: "Cisco Netwrok Academy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "Service Level Agreements & Quality of Service for Beginners",
+    issuer: "Udemy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "IT Support & Troubleshooting Tips for Clinical Environments",
+    issuer: "Udemy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "Mastering Windows Security",
+    issuer: "Udemy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "Computer Networking Basics for Desktop Support Technicians",
+    issuer: "Udemy",
+    purpose: "IT SUPPORT",
+  },
+  {
+    title: "Networking Basics",
+    issuer: "Cisco Network Academy",
+    purpose: "NETWORKING",
+  },
+  {
+    title: "IP Addressing and Subnetting — Zero to Hero",
+    issuer: "Udemy",
+    purpose: "NETWORKING",
+  },
+  {
+    title: "Ethical Hacker",
+    issuer: "Cisco Networking Academy",
+    purpose: "SECURITY",
+  },
   { title: "OWASP Top 10 (Web)", issuer: "MaharaTech", purpose: "SECURITY" },
-  { title: "Malware Analysis Fundamentals", issuer: "MaharaTech", purpose: "SECURITY" },
-  { title: "Nmap Advanced Techniques Course A To Z On Network Scan ", issuer: "MaharaTech", purpose: "SECURITY" },
-  { title: "Reverse Code Engineering", issuer: "MaharaTech", purpose: "SECURITY" },
-  { title: "Google Africa Android Developer Scholarship Program", issuer: "Google Developers", purpose: "DEVELOPMENT" },
-  { title: "Python and Flask Demonstration Practice Course", issuer: "Udemy", purpose: "DEVELOPMENT" },
-  { title: "Python And Flask Framework Complete Course for beginners", issuer: "Udemy", purpose: "DEVELOPMENT" },
-  { title: "Agile Crash Course For Beginners", issuer: "Udemy", purpose: "DEVELOPMENT" },
+  {
+    title: "Malware Analysis Fundamentals",
+    issuer: "MaharaTech",
+    purpose: "SECURITY",
+  },
+  {
+    title: "Nmap Advanced Techniques Course A To Z On Network Scan ",
+    issuer: "MaharaTech",
+    purpose: "SECURITY",
+  },
+  {
+    title: "Reverse Code Engineering",
+    issuer: "MaharaTech",
+    purpose: "SECURITY",
+  },
+  {
+    title: "Google Africa Android Developer Scholarship Program",
+    issuer: "Google Developers",
+    purpose: "DEVELOPMENT",
+  },
+  {
+    title: "Python and Flask Demonstration Practice Course",
+    issuer: "Udemy",
+    purpose: "DEVELOPMENT",
+  },
+  {
+    title: "Python And Flask Framework Complete Course for beginners",
+    issuer: "Udemy",
+    purpose: "DEVELOPMENT",
+  },
+  {
+    title: "Agile Crash Course For Beginners",
+    issuer: "Udemy",
+    purpose: "DEVELOPMENT",
+  },
   { title: "CS50x", issuer: "Harvard edX", purpose: "COMPUTER SCIENCE" },
-  { title: "ITI Program 101 — Intro to CS", issuer: "ITI", purpose: "COMPUTER SCIENCE" },
-  { title: "Freelancing basics", issuer: "MaharaTech", purpose: "COMPUTER SCIENCE" },
+  {
+    title: "ITI Program 101 — Intro to CS",
+    issuer: "ITI",
+    purpose: "COMPUTER SCIENCE",
+  },
+  {
+    title: "Freelancing basics",
+    issuer: "MaharaTech",
+    purpose: "COMPUTER SCIENCE",
+  },
 ];
 
 const CURRENT_COURSES = [
@@ -271,7 +390,14 @@ const PROJECTS: NetProject[] = [
     title: "Hotel Network",
     folder: "Hotel-Network",
     badge: "MULTI-ROUTER · OSPF",
-    tags: ["CISCO PACKET TRACER", "OSPF", "VLANs", "DHCP", "SSH", "PORT SECURITY"],
+    tags: [
+      "CISCO PACKET TRACER",
+      "OSPF",
+      "VLANs",
+      "DHCP",
+      "SSH",
+      "PORT SECURITY",
+    ],
     summary:
       "A modern network for a three-floor hotel: one router per floor in the IT server room, linked with serial DCE cables, a switch and Wi-Fi on every floor, and every department isolated in its own VLAN.",
     highlights: [
@@ -376,8 +502,14 @@ const PROJECTS: NetProject[] = [
         name: "R1",
         model: "Cisco 2911",
         switches: [
-          { name: "SW-ACC", segments: [{ name: "Accounts", net: "198.162.40.0/25" }] },
-          { name: "SW-DEL", segments: [{ name: "Delivery", net: "198.162.40.128/25" }] },
+          {
+            name: "SW-ACC",
+            segments: [{ name: "Accounts", net: "198.162.40.0/25" }],
+          },
+          {
+            name: "SW-DEL",
+            segments: [{ name: "Delivery", net: "198.162.40.128/25" }],
+          },
         ],
       },
     ],
@@ -395,7 +527,21 @@ const EXPERIENCE = [
       "Troubleshooting SQL-related problems. including database queries, data inconsistencies and database connectivity issues.",
       "inestigate applications bugs. reproduce issues. collect relevent logs, and escalate complex cases to developers.",
       "Assist Customers with application setup, configuration and usage.",
-      "Receive Service Requests and update requests."
+      "Receive Service Requests and update requests.",
+    ],
+  },
+  ,
+  {
+    date: "OCT 2026 – PRESENT",
+    title: "Cyber Security Track Mentor — Voluntary",
+    company: "DSC Egypt",
+    location: "Remote",
+    bullets: [
+      "Provide application support for IceCafe POS troubleshooting software issues.",
+      "Troubleshooting SQL-related problems. including database queries, data inconsistencies and database connectivity issues.",
+      "inestigate applications bugs. reproduce issues. collect relevent logs, and escalate complex cases to developers.",
+      "Assist Customers with application setup, configuration and usage.",
+      "Receive Service Requests and update requests.",
     ],
   },
   {
@@ -404,12 +550,13 @@ const EXPERIENCE = [
     company: "Industrial Company",
     location: "Ain Sokhna District, Suez",
     bullets: [
-      "Provided technical support for hardware, software, and end-user device issues in an enterprise environment.",
-      "Prepared, configured, and deployed computers and IT devices for employees.",
-      "Performed Windows system diagnostics and troubleshooting using system logs, disk utilities, and Sergei Strelec Toolkit.",
-      "Supported network installations, including physical setup, device connectivity, and basic troubleshooting.",
-      "Managed and maintained IT equipment inventory, including cables, access points, racks, and networking accessories.",
-      "Diagnosed and resolved technical issues, escalating complex problems to specialized technical teams when required.",
+      "Mentor cybersecurity interns across squads in an 8-week software-house simulation.",
+      " Review GitHub PRs and tasks, providing actionable feedback on code quality and security.",
+      " Deliver technical sessions and office hours on cybersecurity best practices.",
+      "Track intern progress and evaluate task completion.",
+      "Guide interns through troubleshooting and secure implementation.",
+      "Collaborate with mentors and program leads to maintain technical quality.",
+      "Report weekly progress, challenges, and achievements.",
     ],
   },
 ];
@@ -448,7 +595,10 @@ const BOOT_LINES: { text: string; ok?: string; dim?: boolean }[] = [
   { text: "ZM-BIOS v26.10  ·  (C) 2026 ZM SYSTEMS", dim: true },
   { text: "CPU0 ........................................", ok: "OK" },
   { text: "Memory test: 16777216K", ok: "OK" },
-  { text: "Detecting network adapters ... eth0 1000Mb/s full-duplex", ok: "UP" },
+  {
+    text: "Detecting network adapters ... eth0 1000Mb/s full-duplex",
+    ok: "UP",
+  },
   { text: "DHCP: lease acquired 10.0.0.7/24  gw 10.0.0.1", ok: "OK" },
   { text: "Joining domain ZM.LOCAL (Kerberos) ...........", ok: "OK" },
   { text: "Loading firewall policy ............... 128 rules", ok: "OK" },
@@ -489,9 +639,7 @@ function BootScreen() {
           style={{ animationDelay: `${0.1 + i * 0.17}s` }}
         >
           <span className="min-w-0 truncate">{l.text}</span>
-          {l.ok && (
-            <span className="boot-ok shrink-0">[ {l.ok} ]</span>
-          )}
+          {l.ok && <span className="boot-ok shrink-0">[ {l.ok} ]</span>}
         </div>
       ))}
     </div>
@@ -516,11 +664,17 @@ function subscribeTheme(cb: () => void) {
 function readTheme(): "dark" | "light" {
   const set = document.documentElement.dataset.theme;
   if (set === "light" || set === "dark") return set;
-  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  return window.matchMedia("(prefers-color-scheme: light)").matches
+    ? "light"
+    : "dark";
 }
 
 function Nav() {
-  const theme = useSyncExternalStore(subscribeTheme, readTheme, () => "dark" as const);
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    readTheme,
+    () => "dark" as const,
+  );
   const clockRef = useRef<HTMLSpanElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
@@ -538,7 +692,8 @@ function Nav() {
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const p = max > 0 ? window.scrollY / max : 0;
-      if (progressRef.current) progressRef.current.style.transform = `scaleX(${p})`;
+      if (progressRef.current)
+        progressRef.current.style.transform = `scaleX(${p})`;
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -576,7 +731,9 @@ function Nav() {
               ["#blog", "BLOG"],
             ].map(([href, label]) => (
               <a key={href} href={href} className="group hover:text-accent-ink">
-                <span className="text-fg/35 group-hover:text-accent-ink">/</span>
+                <span className="text-fg/35 group-hover:text-accent-ink">
+                  /
+                </span>
                 {label}
               </a>
             ))}
@@ -591,11 +748,15 @@ function Nav() {
             <span className="inline-block h-1.5 w-1.5 animate-[blink_1.6s_infinite] rounded-full bg-accent" />
             ONLINE
             <span className="text-fg/25">|</span>
-            <span ref={clockRef} className="tabular-nums">--:--:--</span>
+            <span ref={clockRef} className="tabular-nums">
+              --:--:--
+            </span>
           </span>
           <button
             onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
             className="group relative flex h-[26px] w-[52px] cursor-pointer items-center rounded-full border border-line bg-panel p-[2px] transition-colors hover:border-fg/50"
           >
             <span
@@ -603,7 +764,11 @@ function Nav() {
                 theme === "light" ? "translate-x-[26px]" : "translate-x-0"
               }`}
             >
-              {theme === "light" ? <Sun size={12} strokeWidth={2.5} /> : <Moon size={12} strokeWidth={2.5} />}
+              {theme === "light" ? (
+                <Sun size={12} strokeWidth={2.5} />
+              ) : (
+                <Moon size={12} strokeWidth={2.5} />
+              )}
             </span>
           </button>
         </div>
@@ -630,7 +795,8 @@ function Hero() {
       const hh = String(Math.floor(s / 3600)).padStart(2, "0");
       const mm = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
       const ss = String(s % 60).padStart(2, "0");
-      if (uptimeRef.current) uptimeRef.current.textContent = `${hh}:${mm}:${ss}`;
+      if (uptimeRef.current)
+        uptimeRef.current.textContent = `${hh}:${mm}:${ss}`;
     }, 1000);
     return () => window.clearInterval(id);
   }, []);
@@ -682,7 +848,10 @@ function Hero() {
 
             {/* Rotating badge */}
             <div className="pointer-events-none absolute top-[38%] -left-[30px] h-[64px] w-[64px] animate-[spin_14s_linear_infinite] sm:-left-[44px] sm:h-[88px] sm:w-[88px] md:-left-[59px] md:h-[118px] md:w-[118px]">
-              <svg viewBox="0 0 150 150" className="h-full w-full overflow-visible">
+              <svg
+                viewBox="0 0 150 150"
+                className="h-full w-full overflow-visible"
+              >
                 <defs>
                   <path
                     id="circ"
@@ -693,7 +862,11 @@ function Hero() {
                   cx="75"
                   cy="75"
                   r="72"
-                  style={{ fill: "var(--bg)", stroke: "var(--accent)", strokeWidth: 1.5 }}
+                  style={{
+                    fill: "var(--bg)",
+                    stroke: "var(--accent)",
+                    strokeWidth: 1.5,
+                  }}
                 />
                 <text
                   style={{
@@ -703,14 +876,26 @@ function Hero() {
                     fill: "var(--fg)",
                   }}
                 >
-                  <textPath href="#circ">{"OPEN TO WORK • IT SUPPORT • "}</textPath>
+                  <textPath href="#circ">
+                    {"OPEN TO WORK • IT SUPPORT • "}
+                  </textPath>
                 </text>
-                <circle cx="75" cy="75" r="6" style={{ fill: "var(--accent)" }} />
+                <circle
+                  cx="75"
+                  cy="75"
+                  r="6"
+                  style={{ fill: "var(--accent)" }}
+                />
                 <circle
                   cx="75"
                   cy="75"
                   r="14"
-                  style={{ fill: "none", stroke: "var(--accent)", strokeWidth: 1, opacity: 0.5 }}
+                  style={{
+                    fill: "none",
+                    stroke: "var(--accent)",
+                    strokeWidth: 1,
+                    opacity: 0.5,
+                  }}
                 />
               </svg>
             </div>
@@ -760,7 +945,9 @@ function Hero() {
             </span>
             <span className="rounded-[6px] border border-line bg-panel/70 px-2.5 py-1.5">
               <span className="text-fg/40">UPTIME </span>
-              <span ref={uptimeRef} className="tabular-nums">00:00:00</span>
+              <span ref={uptimeRef} className="tabular-nums">
+                00:00:00
+              </span>
             </span>
           </div>
         </div>
@@ -775,7 +962,11 @@ const TERMINAL_SCRIPT: { prompt: string; cmd: string; out: string[] }[] = [
   {
     prompt: "PS C:\\>",
     cmd: "Get-ADUser zeyad -Properties Title | Select Name, Title",
-    out: ["Name           Title", "----           -----", "Zeyad Mohamed  IT Technical Support"],
+    out: [
+      "Name           Title",
+      "----           -----",
+      "Zeyad Mohamed  IT Technical Support",
+    ],
   },
   {
     prompt: "PS C:\\>",
@@ -789,7 +980,10 @@ const TERMINAL_SCRIPT: { prompt: string; cmd: string; out: string[] }[] = [
   {
     prompt: "R3#",
     cmd: "show vlan brief | include active",
-    out: ["10   it-vlan        active    Fa0/3-6", "20   admin-vlan     active    Fa0/7-10"],
+    out: [
+      "10   it-vlan        active    Fa0/3-6",
+      "20   admin-vlan     active    Fa0/7-10",
+    ],
   },
   {
     prompt: "PS C:\\>",
@@ -802,12 +996,19 @@ const TERMINAL_SCRIPT: { prompt: string; cmd: string; out: string[] }[] = [
   {
     prompt: "zeyad@srv-01:~$",
     cmd: "systemctl status helpdesk",
-    out: ["● helpdesk.service - IT Technical Support", "   Active: active (running)"],
+    out: [
+      "● helpdesk.service - IT Technical Support",
+      "   Active: active (running)",
+    ],
   },
   {
     prompt: "zeyad@srv-01:~$",
     cmd: "sudo ufw status",
-    out: ["Status: active", "22/tcp    ALLOW   192.168.1.0/24", "443/tcp   ALLOW   Anywhere"],
+    out: [
+      "Status: active",
+      "22/tcp    ALLOW   192.168.1.0/24",
+      "443/tcp   ALLOW   Anywhere",
+    ],
   },
 ];
 
@@ -821,13 +1022,20 @@ const scriptLines = (steps: typeof TERMINAL_SCRIPT): TermLine[] =>
 
 const TERMINAL_INTRO: TermLine[] = [
   { kind: "out", text: "Windows PowerShell" },
-  { kind: "out", text: "Copyright (C) Microsoft Corporation. All rights reserved." },
+  {
+    kind: "out",
+    text: "Copyright (C) Microsoft Corporation. All rights reserved.",
+  },
   { kind: "out", text: "" },
   ...scriptLines(TERMINAL_SCRIPT.slice(0, 1)),
 ];
 
 const promptClass = (p?: string) =>
-  p?.startsWith("PS") ? "text-accent-2" : p?.endsWith("#") ? "text-warn" : "text-accent-ink";
+  p?.startsWith("PS")
+    ? "text-accent-2"
+    : p?.endsWith("#")
+      ? "text-warn"
+      : "text-accent-ink";
 
 function TypingTerminal() {
   const [lines, setLines] = useState<TermLine[]>(TERMINAL_INTRO);
@@ -854,7 +1062,10 @@ function TypingTerminal() {
         await sleep(260);
         if (cancelled) return;
         setLines((prev) => [...prev, ...scriptLines([step])].slice(-9));
-        setTyping({ prompt: TERMINAL_SCRIPT[(i + 1) % TERMINAL_SCRIPT.length].prompt, text: "" });
+        setTyping({
+          prompt: TERMINAL_SCRIPT[(i + 1) % TERMINAL_SCRIPT.length].prompt,
+          text: "",
+        });
         await sleep(1500);
         i++;
       }
@@ -881,16 +1092,21 @@ function TypingTerminal() {
           {lines.map((l, i) =>
             l.kind === "cmd" ? (
               <div key={i} className="truncate">
-                <span className={promptClass(l.prompt)}>{l.prompt}</span> {l.text}
+                <span className={promptClass(l.prompt)}>{l.prompt}</span>{" "}
+                {l.text}
               </div>
             ) : (
-              <div key={i} className="min-h-[1.65em] truncate whitespace-pre text-fg/55">
+              <div
+                key={i}
+                className="min-h-[1.65em] truncate whitespace-pre text-fg/55"
+              >
                 {l.text}
               </div>
             ),
           )}
           <div className="truncate">
-            <span className={promptClass(typing.prompt)}>{typing.prompt}</span> {typing.text}
+            <span className={promptClass(typing.prompt)}>{typing.prompt}</span>{" "}
+            {typing.text}
             <span className="ml-0.5 inline-block h-[1.05em] w-[0.6em] translate-y-[2px] animate-[caret_1s_infinite] bg-accent" />
           </div>
         </div>
@@ -917,7 +1133,13 @@ function NetworkCanvas() {
     let visible = true;
     const LINK = 150;
 
-    type Node = { x: number; y: number; vx: number; vy: number; kind: 0 | 1 | 2 };
+    type Node = {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      kind: 0 | 1 | 2;
+    };
     type Packet = { a: number; b: number; t: number; v: number; alt: boolean };
     let nodes: Node[] = [];
     let packets: Packet[] = [];
@@ -950,7 +1172,10 @@ function NetworkCanvas() {
         y: Math.random() * h,
         vx: (Math.random() - 0.5) * 0.25,
         vy: (Math.random() - 0.5) * 0.25,
-        kind: (Math.random() < 0.12 ? 1 : Math.random() < 0.1 ? 2 : 0) as 0 | 1 | 2,
+        kind: (Math.random() < 0.12 ? 1 : Math.random() < 0.1 ? 2 : 0) as
+          | 0
+          | 1
+          | 2,
       }));
       packets = [];
       if (reduced) draw();
@@ -1056,7 +1281,13 @@ function NetworkCanvas() {
             }
           }
           if (best >= 0)
-            packets.push({ a, b: best, t: 0, v: 0.008 + Math.random() * 0.014, alt: Math.random() < 0.35 });
+            packets.push({
+              a,
+              b: best,
+              t: 0,
+              v: 0.008 + Math.random() * 0.014,
+              alt: Math.random() < 0.35,
+            });
         }
         packets = packets.filter((p) => {
           p.t += p.v;
@@ -1107,7 +1338,8 @@ function NetworkCanvas() {
 }
 
 function Marquee() {
-  const line = "WINDOWS SERVER ✦ ACTIVE DIRECTORY ✦ NETWORKING ✦ LINUX ✦ MICROSOFT 365 ✦ INTUNE ✦ CYBERSECURITY ✦ POWERSHELL ✦ TECHNICAL SUPPORT";
+  const line =
+    "WINDOWS SERVER ✦ ACTIVE DIRECTORY ✦ NETWORKING ✦ LINUX ✦ MICROSOFT 365 ✦ INTUNE ✦ CYBERSECURITY ✦ POWERSHELL ✦ TECHNICAL SUPPORT";
   const ports =
     "22/SSH ● 53/DNS ● 67/DHCP ● 88/KERBEROS ● 135/RPC ● 389/LDAP ● 443/HTTPS ● 445/SMB ● 636/LDAPS ● 3389/RDP ● ";
   return (
@@ -1136,20 +1368,35 @@ function Marquee() {
 
 function Work() {
   return (
-    <section id="work" className="px-4 pt-[70px] pb-[40px] sm:px-5 sm:pt-[110px] sm:pb-[60px] md:px-10">
-      <SectionHeading num="01" cmd={["bash", "git clone github.com/Zeyadm8112/Network_Designing"]}>
+    <section
+      id="work"
+      className="px-4 pt-[70px] pb-[40px] sm:px-5 sm:pt-[110px] sm:pb-[60px] md:px-10"
+    >
+      <SectionHeading
+        num="01"
+        cmd={["bash", "git clone github.com/Zeyadm8112/Network_Designing"]}
+      >
         Network Projects
       </SectionHeading>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {PROJECTS.map((project, i) => (
-          <ProjectShowcase key={project.title} project={project} index={i} featured={i === 0} />
+          <ProjectShowcase
+            key={project.title}
+            project={project}
+            index={i}
+            featured={i === 0}
+          />
         ))}
       </div>
 
-      <div data-reveal className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-[12px] border border-dashed border-line px-5 py-4 font-mono text-[11px] tracking-[.06em] text-fg/55 sm:text-xs">
+      <div
+        data-reveal
+        className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-[12px] border border-dashed border-line px-5 py-4 font-mono text-[11px] tracking-[.06em] text-fg/55 sm:text-xs"
+      >
         <span>
-          <span className="text-accent-ink">●</span> All labs built &amp; tested in Cisco Packet Tracer — .pkt files and full configs on GitHub
+          <span className="text-accent-ink">●</span> All labs built &amp; tested
+          in Cisco Packet Tracer — .pkt files and full configs on GitHub
         </span>
         <StoreLink href={LINKS.networkRepo}>VIEW REPOSITORY ↗</StoreLink>
       </div>
@@ -1200,7 +1447,9 @@ function ProjectShowcase({
             </p>
 
             <div className="mt-5 rounded-[10px] border border-line bg-panel-2/70 p-4 font-mono text-[11px] leading-[1.75] sm:text-[12px]">
-              <div className="mb-1 text-fg/40">! running-config — highlights</div>
+              <div className="mb-1 text-fg/40">
+                ! running-config — highlights
+              </div>
               {project.highlights.map((h) => (
                 <div key={h} className="flex gap-2">
                   <span className="shrink-0 text-accent-ink">+</span>
@@ -1211,7 +1460,11 @@ function ProjectShowcase({
           </div>
 
           <div className="flex flex-wrap gap-2 font-mono text-[10px] sm:gap-3.5 sm:text-xs">
-            <StoreLink href={`${LINKS.networkRepo}/tree/main/${project.folder}`}>GITHUB ↗</StoreLink>
+            <StoreLink
+              href={`${LINKS.networkRepo}/tree/main/${project.folder}`}
+            >
+              GITHUB ↗
+            </StoreLink>
           </div>
         </div>
 
@@ -1238,7 +1491,10 @@ function Topology({ project }: { project: NetProject }) {
         <div className="mb-4 flex flex-wrap items-center gap-2 font-mono text-[10px] text-fg/55 sm:text-[11px]">
           <span className="text-fg/40">SERIAL (DCE) · OSPF</span>
           {project.wan.map((w) => (
-            <span key={w} className="rounded-[5px] border border-warn/50 px-1.5 py-0.5 text-warn">
+            <span
+              key={w}
+              className="rounded-[5px] border border-warn/50 px-1.5 py-0.5 text-warn"
+            >
               {w}
             </span>
           ))}
@@ -1268,14 +1524,19 @@ function Topology({ project }: { project: NetProject }) {
               <div className="text-fg/45">{r.model}</div>
             </div>
 
-            <div className={`mt-0 grid w-full gap-3 ${r.switches.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+            <div
+              className={`mt-0 grid w-full gap-3 ${r.switches.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
+            >
               {r.switches.map((sw) => (
                 <div key={sw.name} className="flex flex-col items-center">
                   <span className="h-5 border-l-2 border-accent-2/70" />
                   <div className="flex items-center gap-1.5 rounded-[6px] border border-accent-2/60 bg-panel px-2 py-1 font-mono text-[10px] font-bold text-accent-2 sm:text-[11px]">
                     <span className="grid grid-cols-4 gap-[2px]">
                       {Array.from({ length: 8 }).map((_, k) => (
-                        <span key={k} className="h-[3px] w-[3px] rounded-[1px] bg-accent-2/80" />
+                        <span
+                          key={k}
+                          className="h-[3px] w-[3px] rounded-[1px] bg-accent-2/80"
+                        />
                       ))}
                     </span>
                     {sw.name}
@@ -1288,7 +1549,9 @@ function Topology({ project }: { project: NetProject }) {
                         className="rounded-[6px] border border-line bg-panel/90 px-2 py-1.5 font-mono text-[10px] leading-tight sm:text-[10.5px]"
                       >
                         <div className="flex items-center justify-between gap-2">
-                          <span className="truncate font-semibold">{s.name}</span>
+                          <span className="truncate font-semibold">
+                            {s.name}
+                          </span>
                           {s.vlan && (
                             <span className="shrink-0 rounded-[3px] bg-accent/15 px-1 text-accent-ink">
                               VLAN {s.vlan}
@@ -1317,12 +1580,21 @@ function Skills() {
   const [active, setActive] = useState(0);
   const group = SKILL_GROUPS[active];
   const total = 16;
-  const ports = Array.from({ length: total }, (_, i) => group.skills[i] ?? null);
+  const ports = Array.from(
+    { length: total },
+    (_, i) => group.skills[i] ?? null,
+  );
   const allCount = SKILL_GROUPS.reduce((n, g) => n + g.skills.length, 0);
 
   return (
-    <section id="skills" className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
-      <SectionHeading num="02" cmd={["ios", `show interfaces status vlan ${group.vlan}`]}>
+    <section
+      id="skills"
+      className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10"
+    >
+      <SectionHeading
+        num="02"
+        cmd={["ios", `show interfaces status vlan ${group.vlan}`]}
+      >
         Skills
       </SectionHeading>
 
@@ -1332,7 +1604,9 @@ function Skills() {
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-4 py-3 font-mono text-[10px] tracking-[.1em] text-fg/55 sm:px-6 sm:text-[11px]">
             <div className="flex items-center gap-3">
               <span className="font-bold text-fg">ZM-CORE-SW01</span>
-              <span className="hidden sm:inline">{allCount} SKILLS · {SKILL_GROUPS.length} VLANs · L3 MANAGED</span>
+              <span className="hidden sm:inline">
+                {allCount} SKILLS · {SKILL_GROUPS.length} VLANs · L3 MANAGED
+              </span>
             </div>
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1.5">
@@ -1348,7 +1622,10 @@ function Skills() {
           </div>
 
           {/* VLAN selector */}
-          <div role="tablist" className="flex gap-2 overflow-x-auto border-b border-line px-4 py-3 sm:px-6">
+          <div
+            role="tablist"
+            className="flex gap-2 overflow-x-auto border-b border-line px-4 py-3 sm:px-6"
+          >
             {SKILL_GROUPS.map((g, i) => (
               <button
                 key={g.vlan}
@@ -1361,8 +1638,12 @@ function Skills() {
                     : "border-line text-fg/65 hover:border-fg/40 hover:text-fg"
                 }`}
               >
-                <span className="block font-bold">VLAN {g.vlan} · {g.name}</span>
-                <span className={`block ${i === active ? "text-on-accent/75" : "text-fg/40"}`}>
+                <span className="block font-bold">
+                  VLAN {g.vlan} · {g.name}
+                </span>
+                <span
+                  className={`block ${i === active ? "text-on-accent/75" : "text-fg/40"}`}
+                >
                   {g.skills.length} ports up
                 </span>
               </button>
@@ -1370,21 +1651,32 @@ function Skills() {
           </div>
 
           <div className="flex items-baseline justify-between gap-3 px-4 pt-4 sm:px-6">
-            <h3 className="m-0 text-[clamp(18px,2.4vw,26px)] font-semibold tracking-[-.01em]">{group.label}</h3>
+            <h3 className="m-0 text-[clamp(18px,2.4vw,26px)] font-semibold tracking-[-.01em]">
+              {group.label}
+            </h3>
             <span className="font-mono text-[10px] text-accent-ink sm:text-[11px]">
               {group.skills.length}/{total} UP
             </span>
           </div>
 
-          <div key={active} className="grid grid-cols-1 gap-x-3 gap-y-2 p-4 min-[460px]:grid-cols-2 sm:p-6 md:grid-cols-3 xl:grid-cols-4">
+          <div
+            key={active}
+            className="grid grid-cols-1 gap-x-3 gap-y-2 p-4 min-[460px]:grid-cols-2 sm:p-6 md:grid-cols-3 xl:grid-cols-4"
+          >
             {ports.map((skill, i) => (
               <div
                 key={i}
                 tabIndex={skill ? 0 : -1}
                 className={`port group flex cursor-default items-center gap-3 rounded-[10px] border border-transparent p-2 outline-none transition-colors ${
-                  skill ? "hover:border-line hover:bg-accent/10 focus-visible:bg-accent/10" : "is-empty opacity-40"
+                  skill
+                    ? "hover:border-line hover:bg-accent/10 focus-visible:bg-accent/10"
+                    : "is-empty opacity-40"
                 }`}
-                style={skill ? { animation: `port-in .35s ease ${i * 0.03}s both` } : undefined}
+                style={
+                  skill
+                    ? { animation: `port-in .35s ease ${i * 0.03}s both` }
+                    : undefined
+                }
               >
                 <div className="flex shrink-0 flex-col items-center gap-1">
                   <div className="flex items-center gap-1">
@@ -1395,12 +1687,16 @@ function Skills() {
                     />
                   </div>
                   <div className="rj45" />
-                  <span className="font-mono text-[9px] text-fg/40">Gi0/{i + 1}</span>
+                  <span className="font-mono text-[9px] text-fg/40">
+                    Gi0/{i + 1}
+                  </span>
                 </div>
                 <div className="min-w-0">
                   <span
                     className={`block text-[13px] leading-snug font-semibold sm:text-[14px] ${
-                      skill ? "text-fg group-hover:text-accent-ink" : "font-mono text-[11px] text-fg/40"
+                      skill
+                        ? "text-fg group-hover:text-accent-ink"
+                        : "font-mono text-[11px] text-fg/40"
                     }`}
                   >
                     {skill ? skill.name : "— not connected"}
@@ -1427,7 +1723,10 @@ function Skills() {
 
 function Experience() {
   return (
-    <section id="experience" className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
+    <section
+      id="experience"
+      className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10"
+    >
       <SectionHeading num="03" cmd={["ps", "Get-WinEvent -LogName Career"]}>
         Experience
       </SectionHeading>
@@ -1469,14 +1768,21 @@ function Experience() {
                 <div className="mt-1 text-fg/35">{e.location}</div>
               </div>
               <div>
-                <span className="block text-[20px] leading-tight font-semibold sm:text-[26px]">{e.title}</span>
+                <span className="block text-[20px] leading-tight font-semibold sm:text-[26px]">
+                  {e.title}
+                </span>
                 <span className="mt-1 block font-mono text-[11px] tracking-[.06em] text-accent-ink sm:text-xs">
                   @ {e.company}
                 </span>
                 <ul className="m-0 mt-4 grid list-none grid-cols-1 gap-x-8 gap-y-2.5 p-0 lg:grid-cols-2">
                   {e.bullets.map((b) => (
-                    <li key={b} className="flex gap-2.5 text-[13.5px] leading-relaxed text-fg/70 sm:text-[15px]">
-                      <span className="mt-[3px] shrink-0 font-mono text-[11px] text-accent-ink">›</span>
+                    <li
+                      key={b}
+                      className="flex gap-2.5 text-[13.5px] leading-relaxed text-fg/70 sm:text-[15px]"
+                    >
+                      <span className="mt-[3px] shrink-0 font-mono text-[11px] text-accent-ink">
+                        ›
+                      </span>
                       {b}
                     </li>
                   ))}
@@ -1495,14 +1801,17 @@ function Experience() {
 // an X.509-style certificate you can flip to inspect its details & trust chain.
 // ---------------------------------------------------------------------------
 
-const CERT_PURPOSES: { key: CertPurpose | "ALL"; label: string; icon: string }[] = [
+const CERT_PURPOSES: {
+  key: CertPurpose | "ALL";
+  label: string;
+  icon: string;
+}[] = [
   { key: "ALL", label: "All purposes", icon: "✱" },
   { key: "IT SUPPORT", label: "IT Support", icon: "⚙" },
   { key: "NETWORKING", label: "Networking", icon: "⇄" },
   { key: "SECURITY", label: "Security", icon: "⛨" },
   { key: "DEVELOPMENT", label: "Development", icon: "</>" },
   { key: "COMPUTER SCIENCE", label: "Computer Science", icon: "🖥" },
-  
 ];
 
 // FNV-1a → deterministic hex, so serials/thumbprints are stable on server & client
@@ -1585,17 +1894,28 @@ function Certifications() {
       id="certifications"
       className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10"
     >
-      <SectionHeading num="04" cmd={["ps", "Get-ChildItem Cert:\\CurrentUser\\My | Test-Certificate"]}>
+      <SectionHeading
+        num="04"
+        cmd={["ps", "Get-ChildItem Cert:\\CurrentUser\\My | Test-Certificate"]}
+      >
         Certifications
       </SectionHeading>
 
-      <Window title="certmgr — Certificates - Current User › Personal › Certificates" icon="⚿" status="X.509 v3">
+      <Window
+        title="certmgr — Certificates - Current User › Personal › Certificates"
+        icon="⚿"
+        status="X.509 v3"
+      >
         {/* Verification bar */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-line bg-panel-2/60 px-4 py-3 font-mono text-[10.5px] tracking-[.06em] sm:px-6 sm:text-[11.5px]">
-          <span className={`flex items-center gap-2 ${done ? "text-accent-ink" : "text-warn"}`}>
+          <span
+            className={`flex items-center gap-2 ${done ? "text-accent-ink" : "text-warn"}`}
+          >
             <span
               className={`grid h-4 w-4 place-items-center rounded-full border text-[9px] ${
-                done ? "border-accent-ink" : "animate-spin border-warn border-t-transparent"
+                done
+                  ? "border-accent-ink"
+                  : "animate-spin border-warn border-t-transparent"
               }`}
             >
               {done ? "✓" : ""}
@@ -1616,8 +1936,13 @@ function Certifications() {
         <div className="grid grid-cols-1 lg:grid-cols-[230px_1fr]">
           {/* Intended purpose filter — sidebar on desktop, chips on mobile */}
           <aside className="border-b border-line p-4 font-mono text-[11px] sm:p-5 lg:border-r lg:border-b-0">
-            <div className="mb-3 text-[10px] tracking-[.1em] text-fg/40">INTENDED PURPOSE</div>
-            <div role="tablist" className="flex gap-1.5 overflow-x-auto lg:flex-col lg:overflow-visible">
+            <div className="mb-3 text-[10px] tracking-[.1em] text-fg/40">
+              INTENDED PURPOSE
+            </div>
+            <div
+              role="tablist"
+              className="flex gap-1.5 overflow-x-auto lg:flex-col lg:overflow-visible"
+            >
               {CERT_PURPOSES.map((p) => {
                 const count =
                   p.key === "ALL"
@@ -1638,14 +1963,17 @@ function Certifications() {
                   >
                     <span className="w-5 text-center">{p.icon}</span>
                     <span className="flex-1 whitespace-nowrap">{p.label}</span>
-                    <span className={on ? "text-on-accent/70" : "text-fg/35"}>{count}</span>
+                    <span className={on ? "text-on-accent/70" : "text-fg/35"}>
+                      {count}
+                    </span>
                   </button>
                 );
               })}
             </div>
 
             <div className="mt-6 hidden rounded-[10px] border border-dashed border-line p-3 text-[10px] leading-relaxed text-fg/45 lg:block">
-              <span className="text-accent-ink">tip ›</span> click a certificate to inspect its details and certification path.
+              <span className="text-accent-ink">tip ›</span> click a certificate
+              to inspect its details and certification path.
             </div>
           </aside>
 
@@ -1703,7 +2031,9 @@ function CertCard({
     >
       <div
         className={`cert-inner relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] ${
-          flipped ? "[transform:rotateY(180deg)]" : "group-hover:[transform:rotateY(6deg)_rotateX(-3deg)]"
+          flipped
+            ? "[transform:rotateY(180deg)]"
+            : "group-hover:[transform:rotateY(6deg)_rotateX(-3deg)]"
         }`}
       >
         {/* FRONT — the certificate */}
@@ -1722,8 +2052,12 @@ function CertCard({
             </div>
           </div>
 
-          <div className="mt-3 font-mono text-[9.5px] tracking-[.12em] text-fg/40">ISSUED TO</div>
-          <div className="text-[13px] font-semibold tracking-[.02em]">Zeyad Mohamed</div>
+          <div className="mt-3 font-mono text-[9.5px] tracking-[.12em] text-fg/40">
+            ISSUED TO
+          </div>
+          <div className="text-[13px] font-semibold tracking-[.02em]">
+            Zeyad Mohamed
+          </div>
 
           <h3 className="mt-3 mb-0 line-clamp-3 text-[19px] leading-[1.18] font-bold tracking-[-.01em] sm:text-[21px]">
             {cert.title}
@@ -1732,7 +2066,9 @@ function CertCard({
           <div className="mt-auto flex items-end justify-between gap-3 border-t border-dashed border-line pt-3">
             <div className="min-w-0 font-mono text-[10px] leading-relaxed">
               <div className="text-fg/40">ISSUED BY</div>
-              <div className="truncate font-semibold text-fg/80">{cert.issuer}</div>
+              <div className="truncate font-semibold text-fg/80">
+                {cert.issuer}
+              </div>
             </div>
             <span
               className={`flex shrink-0 items-center gap-1.5 rounded-[6px] border px-2 py-1 font-mono text-[9.5px] tracking-[.08em] transition-colors ${
@@ -1770,16 +2106,20 @@ function CertCard({
             <dd className="m-0 break-all text-fg/70">{thumb}</dd>
           </dl>
           <div className="mt-auto border-t border-line px-3 py-3">
-            <div className="mb-1.5 tracking-[.08em] text-fg/40">CERTIFICATION PATH</div>
+            <div className="mb-1.5 tracking-[.08em] text-fg/40">
+              CERTIFICATION PATH
+            </div>
             <div className="leading-[1.7]">
               <div className="truncate">
                 <span className="text-warn">▣</span> {cert.issuer} Root CA
               </div>
               <div className="truncate pl-4">
-                <span className="text-fg/35">└</span> <span className="text-accent-2">▣</span> zm.local Issuing CA
+                <span className="text-fg/35">└</span>{" "}
+                <span className="text-accent-2">▣</span> zm.local Issuing CA
               </div>
               <div className="truncate pl-8">
-                <span className="text-fg/35">└</span> <span className="text-accent-ink">✓</span>{" "}
+                <span className="text-fg/35">└</span>{" "}
+                <span className="text-accent-ink">✓</span>{" "}
                 <span className="font-semibold">{cert.title}</span>
               </div>
             </div>
@@ -1796,7 +2136,10 @@ function CertCard({
 
 function Courses() {
   return (
-    <section id="courses" className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10">
+    <section
+      id="courses"
+      className="px-4 py-[40px] sm:px-5 sm:py-[60px] md:px-10"
+    >
       <SectionHeading num="05" cmd={["bash", "sudo apt list --upgradable"]}>
         Currently Enrolled
       </SectionHeading>
@@ -1808,15 +2151,21 @@ function Courses() {
             className="win group transition-transform duration-[.3s] hover:-translate-y-1"
           >
             <div className="win-bar">
-              <span className="inline-block animate-[spin_3s_linear_infinite] text-accent-ink">⟳</span>
+              <span className="inline-block animate-[spin_3s_linear_infinite] text-accent-ink">
+                ⟳
+              </span>
               <span className="truncate">
                 Installing update {index + 1} of {CURRENT_COURSES.length}
               </span>
-              <span className="ml-auto shrink-0 text-fg/40">{course.provider}</span>
+              <span className="ml-auto shrink-0 text-fg/40">
+                {course.provider}
+              </span>
             </div>
             <div className="p-5 sm:p-7 md:p-9">
               <div className="flex items-center justify-between gap-4 font-mono text-[10px] tracking-[.06em] sm:text-[11px]">
-                <span className="text-fg/50">PKG-{String(index + 1).padStart(3, "0")}</span>
+                <span className="text-fg/50">
+                  PKG-{String(index + 1).padStart(3, "0")}
+                </span>
                 <span className="rounded-[6px] bg-accent px-2 py-1 text-on-accent sm:px-3 sm:py-1.5">
                   IN PROGRESS
                 </span>
@@ -1848,7 +2197,10 @@ function About() {
       id="about"
       className="grid grid-cols-1 items-center gap-10 px-4 py-[40px] sm:gap-12 sm:px-5 sm:py-[60px] md:grid-cols-[300px_1fr] md:gap-14 md:px-10"
     >
-      <div data-reveal className="radar mx-auto h-[220px] w-[220px] sm:h-[270px] sm:w-[270px] md:mx-0 md:h-[300px] md:w-[300px]">
+      <div
+        data-reveal
+        className="radar mx-auto h-[220px] w-[220px] sm:h-[270px] sm:w-[270px] md:mx-0 md:h-[300px] md:w-[300px]"
+      >
         <div className="radar-sweep" />
         <div className="absolute inset-[18%] overflow-hidden rounded-full border-2 border-accent shadow-[0_0_30px_color-mix(in_oklab,var(--accent)_35%,transparent)]">
           <ImageSlot
@@ -1879,9 +2231,12 @@ function About() {
           </div>
           <div className="p-5 sm:p-8">
             <div className="font-mono text-[11px] text-fg/55 sm:text-[12px]">
-              <span className="text-accent-ink">zeyad@srv-01:~$</span> cat summary.txt
+              <span className="text-accent-ink">zeyad@srv-01:~$</span> cat
+              summary.txt
             </div>
-            <span className="mt-4 block font-mono text-[10px] text-accent-ink sm:text-xs">06 — ABOUT</span>
+            <span className="mt-4 block font-mono text-[10px] text-accent-ink sm:text-xs">
+              06 — ABOUT
+            </span>
             <p className="mt-3 mb-0 max-w-[900px] text-[clamp(18px,2.4vw,28px)] leading-[1.4] font-medium sm:mt-4">
               {PROFILE.summary}
             </p>
@@ -1919,7 +2274,11 @@ function Blog() {
         Writing
       </SectionHeading>
 
-      <Window title="Capturing from eth0 — blog.pcapng" icon="◉" status={`${POSTS.length} packets`}>
+      <Window
+        title="Capturing from eth0 — blog.pcapng"
+        icon="◉"
+        status={`${POSTS.length} packets`}
+      >
         <div className="hidden grid-cols-[50px_190px_130px_90px_1fr_30px] gap-4 border-b border-line bg-panel-2/60 px-5 py-2.5 font-mono text-[10.5px] tracking-[.08em] text-fg/45 md:grid">
           <span>NO.</span>
           <span>TIME</span>
@@ -1947,7 +2306,9 @@ function Blog() {
             <span className="hidden font-mono text-xs text-accent-2 group-hover:text-on-accent md:block">
               TLSv1.3
             </span>
-            <span className="text-[clamp(16px,2.6vw,28px)] font-semibold">{p.title}</span>
+            <span className="text-[clamp(16px,2.6vw,28px)] font-semibold">
+              {p.title}
+            </span>
             <span className="hidden text-[18px] text-accent-ink group-hover:text-on-accent sm:text-[22px] md:block">
               →
             </span>
@@ -1969,7 +2330,10 @@ function Contact() {
       id="contact"
       className="relative overflow-hidden px-4 pt-[80px] pb-6 text-center sm:px-5 sm:pt-[120px] sm:pb-10 md:px-10"
     >
-      <div aria-hidden className="pointer-events-none absolute top-[40%] left-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[90px]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[40%] left-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[90px]"
+      />
 
       <div className="relative">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 font-mono text-[10px] tracking-[.1em] text-fg/60 sm:text-[11px]">
@@ -1980,7 +2344,9 @@ function Contact() {
           PORT 25 OPEN · AWAITING CONNECTION
         </div>
         <div>
-          <span className="font-mono text-[10px] text-accent-ink sm:text-xs">08 — OPEN A TICKET</span>
+          <span className="font-mono text-[10px] text-accent-ink sm:text-xs">
+            08 — OPEN A TICKET
+          </span>
         </div>
         <div data-reveal className="mt-4 sm:mt-5">
           <a
@@ -1996,7 +2362,7 @@ function Contact() {
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-3 font-mono text-[10px] sm:mt-10 sm:gap-4 sm:text-xs">
           {[
-            [LINKS.whatsapp, "WHATSAPP" ],
+            [LINKS.whatsapp, "WHATSAPP"],
             [LINKS.linkedin, "LINKEDIN"],
             [LINKS.github, "GITHUB"],
             [LINKS.medium, "MEDIUM"],
@@ -2075,12 +2441,15 @@ function SectionHeading({
     <div className={className}>
       {cmd && (
         <div className="mb-2 truncate font-mono text-[10px] text-fg/50 sm:mb-3 sm:text-[12px]">
-          <span className={PROMPTS[cmd[0]].cls}>{PROMPTS[cmd[0]].p}</span> {cmd[1]}
+          <span className={PROMPTS[cmd[0]].cls}>{PROMPTS[cmd[0]].p}</span>{" "}
+          {cmd[1]}
           <span className="ml-1 inline-block h-[1.05em] w-[0.55em] translate-y-[2px] animate-[caret_1s_infinite] bg-fg/50" />
         </div>
       )}
       <div className="flex items-baseline gap-3 sm:gap-4">
-        <span className="font-mono text-[10px] text-accent-ink sm:text-xs">[{num}]</span>
+        <span className="font-mono text-[10px] text-accent-ink sm:text-xs">
+          [{num}]
+        </span>
         <h2 className="m-0 text-[clamp(28px,7vw,88px)] leading-[1] font-bold tracking-[-.02em] uppercase">
           {children}
         </h2>
@@ -2125,11 +2494,19 @@ function Window({
   );
 }
 
-function Tag({ children, accent = false }: { children: ReactNode; accent?: boolean }) {
+function Tag({
+  children,
+  accent = false,
+}: {
+  children: ReactNode;
+  accent?: boolean;
+}) {
   return (
     <span
       className={`rounded-[6px] border px-2 py-[4px] sm:px-3 sm:py-[5px] ${
-        accent ? "border-accent-ink/60 bg-accent/10 text-accent-ink" : "border-line text-fg/75"
+        accent
+          ? "border-accent-ink/60 bg-accent/10 text-accent-ink"
+          : "border-line text-fg/75"
       }`}
     >
       {children}
@@ -2169,7 +2546,9 @@ function ImageSlot({
           alt={alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className={fit === "contain" ? "object-contain object-bottom" : "object-cover"}
+          className={
+            fit === "contain" ? "object-contain object-bottom" : "object-cover"
+          }
         />
       ) : (
         <div
@@ -2201,7 +2580,9 @@ function prefersReducedMotion() {
 function useReveal() {
   useEffect(() => {
     if (prefersReducedMotion()) return;
-    const els = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const els = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal]"),
+    );
     els.forEach((el) => {
       el.style.opacity = "0";
       el.style.transform = "translateY(28px)";
@@ -2236,7 +2617,9 @@ function CursorReticle() {
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const isCoarseOnly = window.matchMedia("(pointer: coarse) and (hover: none)").matches;
+    const isCoarseOnly = window.matchMedia(
+      "(pointer: coarse) and (hover: none)",
+    ).matches;
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring || isCoarseOnly || prefersReducedMotion()) return;
@@ -2293,7 +2676,12 @@ function CursorReticle() {
         ref={ringRef}
         aria-hidden
         className="reticle pointer-events-none fixed top-0 left-0 z-[9999] rounded-full border-[1.5px] border-white mix-blend-difference [transition:width_.2s,height_.2s]"
-        style={{ width: 34, height: 34, transform: "translate(-100px,-100px)", display: "none" }}
+        style={{
+          width: 34,
+          height: 34,
+          transform: "translate(-100px,-100px)",
+          display: "none",
+        }}
       />
     </>
   );
