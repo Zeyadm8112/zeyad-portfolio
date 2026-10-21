@@ -387,14 +387,15 @@ const PROJECTS: NetProject[] = [
 const EXPERIENCE = [
   {
     date: "JUNE 2026 – PRESENT",
-    title: "Full Stack Developer — Freelancing",
+    title: "POS Application Support — Freelancing",
     company: "Ice Code",
     location: "Suez",
     bullets: [
-      "Built web applications using Python, Django, React, and REST APIs.",
-      "Managed client projects from requirements to delivery.",
-      "Troubleshot and debugged application-level issues.",
-      "Used Git/GitHub for version control and documentation.",
+      "Provide application support for IceCafe POS troubleshooting software issues.",
+      "Troubleshooting SQL-related problems. including database queries, data inconsistencies and database connectivity issues.",
+      "inestigate applications bugs. reproduce issues. collect relevent logs, and escalate complex cases to developers.",
+      "Assist Customers with application setup, configuration and usage.",
+      "Receive Service Requests and update requests."
     ],
   },
   {
